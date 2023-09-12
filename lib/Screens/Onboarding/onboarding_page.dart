@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../../core/constants/colors.dart';
 
 class OnboardingPage extends StatelessWidget {
-  String imageUrl;
-  String title;
-  String description;
+  final String imageUrl;
+  final String title;
+  final String description;
 
-  OnboardingPage(
+  const OnboardingPage(
       {super.key,
       required this.imageUrl,
       required this.title,

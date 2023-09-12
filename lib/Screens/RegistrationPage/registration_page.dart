@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/core/constants/colors.dart';
+import 'login_page.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({super.key});
@@ -7,7 +9,65 @@ class RegistrationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Registration Page"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 30),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 80.0),
+              child: Text(
+                "Welcome to GymShift, your fitness journey begins here!",
+                style: TextStyle(color: kTextColor, fontSize: 18),
+              ),
+            ),
+            Image.asset(
+              "assets/images/Logo.png",
+              width: 250,
+              height: 250,
+            ),
+            const Text(
+              "Always ready \n Anywhere",
+              style: TextStyle(color: kTextColor),
+            ),
+            const SizedBox(
+              height: 80,
+            ),
+            Row(
+              children: [
+                const SizedBox(width: 30),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: kPrimaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    child: const Text("Sign Up"),
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: kPrimaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    child: const Text("Sign In"),
+                  ),
+                ),
+                const SizedBox(width: 30),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

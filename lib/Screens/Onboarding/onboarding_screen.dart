@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/RegistrationPage/registration_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../core/constants/colors.dart';
 import 'onboarding_page.dart';
@@ -34,7 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               });
             },
             controller: pageController,
-            children: [
+            children: const [
               OnboardingPage(
                 imageUrl: "assets/images/onboarding1.png",
                 title: "Workout Anywhere",
@@ -95,7 +96,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(kPrimaryColor)),
-                    onPressed: () {},
+                    onPressed: () {
+                      //Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegistrationPage(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       'Get Started',
                       style: TextStyle(color: kBackgroundColor),
