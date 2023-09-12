@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import 'package:gym_shift/core/constants/colors.dart';
 import '../HomePage/home_page.dart';
+import '../Onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -8,16 +10,19 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasySplashScreen(
-      loadingText: const Text('v1'),
+      loadingText: const Text(
+        'Version 1',
+        style: TextStyle(color: kBackgroundColor),
+      ),
       logoWidth: 140,
       logo: Image.asset(
         "assets/images/Logo.png",
         width: 400,
         height: 400,
       ),
-      navigator: HomePage(),
+      navigator: const OnboardingScreen(),
       backgroundColor: const Color.fromRGBO(56, 56, 56, 1),
-      durationInSeconds: 10,
+      durationInSeconds: 5,
     );
   }
 }
