@@ -10,6 +10,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  bool agreeToTerms = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +51,18 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "Email",
               ),
               const SizedBox(height: 15.0),
-
+              const MyTextField(
+                hintText: "Gender",
+              ),
+              const SizedBox(height: 15.0),
+              const MyTextField(
+                hintText: "Password",
+              ),
+              const SizedBox(height: 15.0),
+              const MyTextField(
+                hintText: "Confirm password",
+              ),
+              const SizedBox(height: 15.0),
               //sign in button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -72,22 +84,20 @@ class _SignUpPageState extends State<SignUpPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('''Don't have an account?'''),
+                  Checkbox(
+                      value: agreeToTerms,
+                      onChanged: (_) {
+                        setState(() {
+                          agreeToTerms = !agreeToTerms;
+                        });
+                      }),
+                  const Text('''I agree to the'''),
                   const SizedBox(
                     width: 5.0,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpPage()));
-                    },
-                    child: const Text(
-                      'SignUp',
-                      style: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
-                    ),
+                  const Text(
+                    '''terms and conditions''',
+                    style: TextStyle(color: kPrimaryColor),
                   ),
                 ],
               )
