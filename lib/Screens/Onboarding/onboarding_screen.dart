@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/RegistrationPage/registration_page.dart';
+import 'package:gym_shift/Screens/RegistrationPage/registration_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../core/constants/colors.dart';
 import 'onboarding_page.dart';

@@ -37,7 +37,10 @@ class RegistrationPage extends StatelessWidget {
                 const SizedBox(width: 30),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,
                       shape: RoundedRectangleBorder(

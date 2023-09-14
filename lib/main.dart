@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/RegistrationPage/signup_page.dart';
 import 'package:gym_shift/Screens/SplashScreen/splash_screen.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreen(),
+      home: SignUpPage(),
     );
   }
 }

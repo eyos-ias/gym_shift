@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 
+import 'signup_page.dart';
+
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -97,17 +99,25 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 30),
                 //not a member?
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('''Don't have an account?'''),
-                    SizedBox(
+                    const Text('''Don't have an account?'''),
+                    const SizedBox(
                       width: 5.0,
                     ),
-                    Text(
-                      'SignUp',
-                      style: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpPage()));
+                      },
+                      child: const Text(
+                        'SignUp',
+                        style: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 )
