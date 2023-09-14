@@ -8,6 +8,7 @@ class OtpField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OtpTextField(
+      borderWidth: 3,
       numberOfFields: 5,
       borderColor: kPrimaryColor,
       showFieldAsBox: true,

@@ -35,7 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 10),
               const Text(
-                'Welcome back!',
+                '''Let's get started!''',
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
