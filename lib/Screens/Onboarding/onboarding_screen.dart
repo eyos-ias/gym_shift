@@ -37,19 +37,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             controller: pageController,
             children: const [
               OnboardingPage(
-                imageUrl: "assets/images/onboarding1.png",
+                imageUrl: "assets/vectors/onboarding1.svg",
                 title: "Workout Anywhere",
                 description:
                     "You have the flexibility to engage in your workout either within the comfort of your home, outdoors, or at the gym, all without requiring any equipment.",
               ),
               OnboardingPage(
-                imageUrl: "assets/images/onboarding2.png",
+                imageUrl: "assets/vectors/onboarding2.svg",
                 title: "Meal Plans",
                 description:
                     "We provide personalized meal plans meticulously crafted to align seamlessly with your unique fitness aspirations and cater to your individual dietary preferences and needs.",
               ),
               OnboardingPage(
-                imageUrl: "assets/images/onboarding3.png",
+                imageUrl: "assets/vectors/onboarding3.svg",
                 title: "Stay Strong & Healthy",
                 description:
                     "Our goal is your full program enjoyment, paired with enduring health and positivity. We're committed to supporting you as you embrace the program fostering both physical well-being and an optimistic mindset.",

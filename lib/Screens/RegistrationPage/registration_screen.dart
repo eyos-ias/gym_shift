@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/RegistrationPage/signup_page.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 import 'login_page.dart';
 
@@ -38,8 +39,10 @@ class RegistrationPage extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/constants/colors.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -20,15 +21,16 @@ class OnboardingPage extends StatelessWidget {
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 60),
-            Image.asset(
-              imageUrl,
-              width: 400,
-              height: 400,
-            ),
+            // Image.asset(
+            //   imageUrl,
+            //   width: 400,
+            //   height: 400,
+            // ),
+            SvgPicture.asset(imageUrl, width: 400, height: 400),
             const SizedBox(height: 10),
             Text(
               title,
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 20,
@@ -37,7 +39,7 @@ class OnboardingPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Text(
                 description,
-                style: TextStyle(color: kTextColor),
+                style: const TextStyle(color: kTextColor),
               ),
             ),
           ]),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:gym_shift/Screens/Onboarding/onboarding_screen.dart';
+import 'package:gym_shift/Screens/ProfileSetup/bmi_page.dart';
 import 'package:gym_shift/Screens/RegistrationPage/login_page.dart';
 import 'package:gym_shift/Screens/RegistrationPage/otp_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/signup_page.dart';
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LoginPage(),
+      home: OnboardingScreen(),
     );
   }
 }
