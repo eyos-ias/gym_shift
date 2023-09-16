@@ -8,36 +8,49 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            "Verification",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 80),
-          OtpField(),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Container(
-              padding: EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                  color: kPrimaryColor,
-                  borderRadius: BorderRadius.circular(15)),
-              child: const Center(
-                child: Text(
-                  'Verify Code',
-                  style: TextStyle(color: Colors.white),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Verification",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              const Text("Enter the OTP code sent to your email"),
+              const SizedBox(height: 50),
+              const OtpField(),
+              const SizedBox(height: 20),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                    ),
+                    onPressed: () {},
+                    child: Container(
+                      padding: const EdgeInsets.all(20.0),
+                      child: const Center(
+                        child: Text(
+                          'Verify Code',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              const SizedBox(height: 20),
+              const Text("Didn't receive the code?"),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Resend Code'),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Resend Code'),
-          ),
-        ],
+        ),
       ),
     );
   }

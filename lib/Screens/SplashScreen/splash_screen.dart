@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:gym_shift/core/constants/colors.dart';
-import '../HomePage/home_page.dart';
+
 import '../Onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {

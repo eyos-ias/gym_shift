@@ -8,9 +8,11 @@ class OtpField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OtpTextField(
+      focusedBorderColor: kPrimaryColor,
+      //enabledBorderColor: kPrimaryColor,
       borderWidth: 3,
       numberOfFields: 5,
-      borderColor: kPrimaryColor,
+      //borderColor: kPrimaryColor,
       showFieldAsBox: true,
       onCodeChanged: (_) {},
       onSubmit: (_) {},

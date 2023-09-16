@@ -84,15 +84,22 @@ class _LoginPageState extends State<LoginPage> {
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    padding: EdgeInsets.all(20.0),
-                    decoration: BoxDecoration(
-                        color: kPrimaryColor,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: const Center(
-                      child: Text(
-                        'Sign in',
-                        style: TextStyle(color: Colors.white),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(kPrimaryColor),
+                      ),
+                      onPressed: () {},
+                      child: Container(
+                        padding: const EdgeInsets.all(20.0),
+                        child: const Center(
+                          child: Text(
+                            'Sign In',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ),
                     ),
                   ),
