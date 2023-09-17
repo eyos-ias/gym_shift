@@ -18,31 +18,30 @@ class OnboardingPage extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 60),
-            // Image.asset(
-            //   imageUrl,
-            //   width: 400,
-            //   height: 400,
-            // ),
-            SvgPicture.asset(imageUrl, width: 400, height: 400),
-            const SizedBox(height: 10),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            imageUrl,
+            width: 300,
+            height: 300,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(
+              description,
+              style: const TextStyle(color: kTextColor),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Text(
-                description,
-                style: const TextStyle(color: kTextColor),
-              ),
-            ),
-          ]),
+          ),
+        ],
+      ),
     );
   }
 }

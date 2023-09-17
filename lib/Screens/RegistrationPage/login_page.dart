@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15.0),
+                const SizedBox(height: 15.0),
                 //password input field
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),

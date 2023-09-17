@@ -75,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: const EdgeInsets.all(20.0),
                         child: const Center(
                           child: Text(
-                            'Verify Code',
+                            'Sign Up',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
