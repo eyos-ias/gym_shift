@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Screens/ProfileSetup/components/goal_tiles.dart';
+import 'package:gym_shift/Screens/common/components/button.dart';
 
 import '../../core/constants/colors.dart';
 
@@ -37,43 +38,28 @@ class GoalsPage extends StatelessWidget {
                   children: [
                     GoalTile(
                       title: "Build Muscle",
+                      icon: Icon(Icons.add),
                     ),
                     GoalTile(
                       title: "Lose Fat",
+                      icon: Icon(Icons.remove),
                     ),
                     GoalTile(
                       title: "Maintain Weight",
+                      icon: Icon(Icons.accessibility_new_rounded),
                     ),
                     GoalTile(
                       title: "Shred",
+                      icon: const Icon(Icons.emoji_food_beverage_rounded),
                     ),
                     GoalTile(
                       title: "Bulk",
+                      icon: const Icon(Icons.food_bank_outlined),
                     )
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15.0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(kPrimaryColor),
-                    ),
-                    onPressed: () {},
-                    child: Container(
-                      padding: const EdgeInsets.all(20.0),
-                      child: const Center(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              MyButton(onPressed: () {}, text: "Next")
             ],
           ),
         ),

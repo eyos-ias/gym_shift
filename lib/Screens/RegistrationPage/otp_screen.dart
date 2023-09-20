@@ -29,7 +29,9 @@ class OtpScreen extends StatelessWidget {
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/bmi');
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(20.0),
                       child: const Center(

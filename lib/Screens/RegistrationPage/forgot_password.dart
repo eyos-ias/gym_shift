@@ -3,14 +3,14 @@ import 'package:gym_shift/core/constants/colors.dart';
 
 import 'signup_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,18 +25,14 @@ class _LoginPageState extends State<LoginPage> {
                 //   height: 40,
                 // ),
                 const Text(
-                  'Login',
+                  'Forgot Password',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
                 ),
-                Image.asset(
-                  "assets/Logo.png",
-                  width: 150,
-                  height: 150,
-                ),
+
                 const SizedBox(height: 10),
                 const Text(
-                  'Welcome back!',
-                  style: TextStyle(fontSize: 20),
+                  'Enter your email to recover your password',
+                  style: TextStyle(fontSize: 15, color: kTextColor),
                 ),
                 const SizedBox(
                   height: 50,
@@ -61,29 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 15.0),
                 //password input field
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Password'),
-                      ),
-                    ),
-                  ),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/forgot');
-                    },
-                    child: const Text("Forgot Password?")),
+
                 SizedBox(height: 15.0),
                 //sign in button
 
@@ -96,12 +70,14 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor:
                             MaterialStateProperty.all(kPrimaryColor),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/otp');
+                      },
                       child: Container(
                         padding: const EdgeInsets.all(20.0),
                         child: const Center(
                           child: Text(
-                            'Sign In',
+                            'Get Code',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -111,28 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 30),
                 //not a member?
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('''Don't have an account?'''),
-                    const SizedBox(
-                      width: 5.0,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpPage()));
-                      },
-                      child: const Text(
-                        'SignUp',
-                        style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                )
               ],
             ),
           ),

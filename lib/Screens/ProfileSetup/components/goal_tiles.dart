@@ -3,7 +3,9 @@ import 'package:gym_shift/core/constants/colors.dart';
 
 class GoalTile extends StatefulWidget {
   String? title;
-  GoalTile({Key? key, required this.title}) : super(key: key);
+  Icon? icon;
+  GoalTile({Key? key, required this.title, required this.icon})
+      : super(key: key);
 
   @override
   State<GoalTile> createState() => _GoalTileState();
@@ -39,7 +41,7 @@ class _GoalTileState extends State<GoalTile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Icon(Icons.accessibility_new),
+                widget.icon!,
                 Text(widget.title!),
               ],
             ),

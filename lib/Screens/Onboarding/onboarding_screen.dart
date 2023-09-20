@@ -98,12 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             MaterialStateProperty.all(kPrimaryColor)),
                     onPressed: () {
                       //Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RegistrationPage(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, '/registration');
                     },
                     child: const Text(
                       'Get Started',
