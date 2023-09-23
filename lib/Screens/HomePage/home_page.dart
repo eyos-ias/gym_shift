@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/core/constants/colors.dart';
+import './components/heading_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,100 +30,69 @@ class _HomePageState extends State<HomePage> {
         builder: (BuildContext context, BoxConstraints constraints) {
           return Column(
             children: [
-              Container(
-                height: constraints.maxHeight * 0.11,
-                color: kPrimaryColor,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: constraints.maxWidth * 0.09),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Good morning!",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white60,
-                                  fontSize: 18 *
-                                      MediaQuery.of(context).textScaleFactor),
-                            ),
-                            Text(
-                              "Ashley Richmond",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25 *
-                                      MediaQuery.of(context).textScaleFactor),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: double.infinity,
-                        child: Center(
-                          child: CircleAvatar(
-                            radius: 30,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
-                child: Container(
-                  height: constraints.maxHeight * 0.89,
-                  color: Colors.white,
-                  child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: constraints.maxHeight * 0.02,
-                      ),
-                      Text(
-                        "Today's Inspiring Motivation",
-                        style: TextStyle(
-                          color: kTextColor,
-                          fontSize: 18 * MediaQuery.of(context).textScaleFactor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Expanded(
-                          child: Image.asset("assets/images/motivation1.png")),
-                      Expanded(
-                        child: GridView(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            childAspectRatio: 16 / 19,
-                            crossAxisCount: 2,
-                          ),
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.all(10.0),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              HeadingSection(constraints: constraints),
+              MainSection(constraints: constraints),
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class MainSection extends StatelessWidget {
+  final BoxConstraints constraints;
+  const MainSection({
+    required this.constraints,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(30),
+        topRight: Radius.circular(30),
+      ),
+      child: Container(
+        width: double.infinity,
+        height: constraints.maxHeight * 0.89,
+        color: Colors.white,
+        child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+          return ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: constraints.maxHeight * 0.02,
+              ),
+              Text(
+                "Today's Inspiring Motivation",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: kTextColor,
+                  fontSize: 18 * MediaQuery.of(context).textScaleFactor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: constraints.maxHeight * 0.465,
+                child: Image.asset("assets/images/motivation1.png"),
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        color: Colors.yellow,
+                      )
+                    ],
+                  )
+                ],
+              )
+            ],
+          );
+        }),
       ),
     );
   }
