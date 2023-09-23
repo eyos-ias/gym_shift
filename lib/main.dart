@@ -21,17 +21,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'GymShift demo', initialRoute: '/', routes: {
-      '/': (context) => const OnboardingScreen(),
-      '/registration': (context) => const RegistrationPage(),
-      '/login': (context) => const LoginPage(),
-      '/forgot': (context) => const ForgotPasswordPage(),
-      '/signup': (context) => const SignUpPage(),
-      '/otp': (context) => const OtpScreen(),
-      '/bmi': (context) => const BmiPage(),
-      '/allergy': (context) => const AllergiesPage(),
-      '/profile': (context) => const ProfilePicturePage(),
-      '/goals': (context) => const GoalsPage(),
-    });
+    // return MaterialApp(title: 'GymShift demo', initialRoute: '/', routes: {
+    //   '/': (context) => const OnboardingScreen(),
+    //   '/registration': (context) => const RegistrationPage(),
+    //   '/login': (context) => const LoginPage(),
+    //   '/forgot': (context) => const ForgotPasswordPage(),
+    //   '/signup': (context) => const SignUpPage(),
+    //   '/otp': (context) => const OtpScreen(),
+    //   '/bmi': (context) => const BmiPage(),
+    //   '/allergy': (context) => const AllergiesPage(),
+    //   '/profile': (context) => const ProfilePicturePage(),
+    //   '/goals': (context) => const GoalsPage(),
+    // });
+    return MaterialApp(
+      title: 'GymShift demo',
+      home: AllergiesPage(),
+    );
   }
 }
