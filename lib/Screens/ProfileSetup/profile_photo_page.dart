@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/core/constants/colors.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../common/components/button.dart';
 
 class ProfilePicturePage extends StatelessWidget {
@@ -21,14 +21,22 @@ class ProfilePicturePage extends StatelessWidget {
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
                     CircleAvatar(
+                      backgroundImage:
+                          AssetImage("assets/images/default_profile.png"),
                       radius: 60,
                     ),
                     Icon(Icons.add_rounded, color: kPrimaryColor),
                   ],
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Text(
                   "Take a minute to upload a profile picture",

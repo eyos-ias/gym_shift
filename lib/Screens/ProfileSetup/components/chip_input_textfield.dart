@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tags_x/flutter_tags_x.dart';
+import 'package:gym_shift/core/constants/colors.dart';
+//import 'package:flutter_tags_x/flutter_tags_x.dart';
 
 class ChipInputTextField extends StatefulWidget {
   @override
@@ -15,20 +16,19 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Add an allergy"),
+          title: const Text("Add an allergy"),
           content: TextField(
             controller: _textEditingController,
-            decoration:
-                InputDecoration(hintText: "Enter chips separated by spaces"),
+            decoration: const InputDecoration(hintText: "Allergy name"),
             onSubmitted: (input) {
               final chips = input.split(' ');
-              chips.forEach((chip) {
+              for (var chip in chips) {
                 if (chip.isNotEmpty) {
                   setState(() {
                     _items.add(Item(title: chip));
                   });
                 }
-              });
+              }
               Navigator.of(context).pop();
               _textEditingController.clear();
             },
@@ -66,46 +66,47 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(8.0),
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          border: Border.all(),
+          //color: kPrimaryColor.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Column(
+          children: [
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 4.0,
+              children: _items.map((item) {
+                return Chip(
+                  backgroundColor: kPrimaryColor.withOpacity(0.2),
+                  label: Text(item.title),
+                  deleteIcon: const Icon(
+                    Icons.cancel,
+                    color: kPrimaryColor,
+                  ),
+                  onDeleted: () {
+                    setState(() {
+                      _items.remove(item);
+                    });
+                  },
+                );
+              }).toList(),
             ),
-            child: Column(
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Wrap(
-                  spacing: 8.0,
-                  runSpacing: 4.0,
-                  children: _items.map((item) {
-                    return Chip(
-                      label: Text(item.title),
-                      deleteIcon: const Icon(Icons.cancel),
-                      onDeleted: () {
-                        setState(() {
-                          _items.remove(item);
-                        });
-                      },
-                    );
-                  }).toList(),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.add),
-                      onPressed: () {
-                        _showModalInput(context);
-                      },
-                    ),
-                  ],
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () {
+                    _showModalInput(context);
+                  },
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

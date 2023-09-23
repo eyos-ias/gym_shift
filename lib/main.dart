@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gym_shift/Screens/Onboarding/onboarding_screen.dart';
-import 'package:gym_shift/Screens/ProfileSetup/allegies_page.dart';
+import 'package:gym_shift/Screens/ProfileSetup/allergies_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/bmi_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/profile_photo_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/workout_goal.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     // });
     return MaterialApp(
       title: 'GymShift demo',
-      home: AllergiesPage(),
+      home: ProfilePicturePage(),
     );
   }
 }
