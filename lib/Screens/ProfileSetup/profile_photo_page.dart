@@ -11,7 +11,7 @@ class ProfilePicturePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Column(
               children: [
@@ -44,9 +44,22 @@ class ProfilePicturePage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 60,
+            ),
             MyButton(
               text: "Next",
               onPressed: () {},
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                "Skip",
+                style: TextStyle(color: kTextColor, fontSize: 15),
+              ),
             ),
           ],
         ),
