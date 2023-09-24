@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 import './components/heading_section.dart';
 import './components/main_section.dart';
+import '../common/components/SideBar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      drawer: const Drawer(),
+      drawer: const SideBar(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return Column(
