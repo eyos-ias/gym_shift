@@ -50,6 +50,7 @@ class HeadingSection extends StatelessWidget {
               height: double.infinity,
               child: Center(
                 child: CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/home_avatar.png"),
                   radius: 30,
                 ),
               ),
