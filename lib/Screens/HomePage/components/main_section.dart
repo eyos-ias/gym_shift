@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/colors.dart';
-import './home_cards.dart';
+import './home_card.dart';
 
 class MainSection extends StatelessWidget {
   final BoxConstraints constraints;
@@ -62,13 +62,13 @@ class MainSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
                     imagePath: "assets/images/shoulder.png",
                     title: "Shoulder",
                   ),
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
                     imagePath: "assets/images/chest.png",
@@ -82,13 +82,13 @@ class MainSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
                     imagePath: "assets/images/quads.png",
                     title: "Quads",
                   ),
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
                     imagePath: "assets/images/obliques.png",
@@ -102,16 +102,16 @@ class MainSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
-                    imagePath: "assets/images/quads.png",
+                    imagePath: "assets/images/forearms.png",
                     title: "Forearms",
                   ),
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
-                    imagePath: "assets/images/obliques.png",
+                    imagePath: "assets/images/abs.png",
                     title: "Abs",
                   ),
                 ],
@@ -122,19 +122,22 @@ class MainSection extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
-                    imagePath: "assets/images/quads.png",
+                    imagePath: "assets/images/cardio.png",
                     title: "Cardio",
                   ),
-                  HomeCards(
+                  HomeCard(
                     onPressed: () {},
                     constraints: constraints,
-                    imagePath: "assets/images/obliques.png",
+                    imagePath: "assets/images/biceps.png",
                     title: "Biceps",
                   ),
                 ],
+              ),
+              SizedBox(
+                height: constraints.maxHeight * 0.02,
               ),
             ],
           );

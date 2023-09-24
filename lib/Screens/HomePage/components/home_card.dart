@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomeCards extends StatelessWidget {
+class HomeCard extends StatelessWidget {
   final BoxConstraints constraints;
   final String imagePath;
   final String title;
   void Function()? onPressed;
-  HomeCards({
+  HomeCard({
     super.key,
     required this.constraints,
     required this.imagePath,
