@@ -35,7 +35,7 @@ class HeadingSection extends StatelessWidget {
                               18 * MediaQuery.of(context).textScaleFactor),
                     ),
                     Text(
-                      "Ashley Richmond",
+                      "Bob Richmond",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -50,7 +50,8 @@ class HeadingSection extends StatelessWidget {
               height: double.infinity,
               child: Center(
                 child: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/home_avatar.png"),
+                  backgroundImage:
+                      AssetImage("assets/images/sidebar_image.png"),
                   radius: 30,
                 ),
               ),
