@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/ExercisePage/exercise_page.dart';
 
 class HomeCard extends StatelessWidget {
   final BoxConstraints constraints;
   final String imagePath;
   final String title;
-  void Function()? onPressed;
-  HomeCard({
+  final void Function()? onPressed;
+  const HomeCard({
     super.key,
     required this.constraints,
     required this.imagePath,
@@ -16,7 +17,13 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onPressed,
+      //onTap: onPressed,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ExercisesPage()),
+        );
+      },
       child: Material(
         borderRadius: BorderRadius.circular(15),
         elevation: 5,
