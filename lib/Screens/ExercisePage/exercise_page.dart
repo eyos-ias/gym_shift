@@ -10,6 +10,7 @@ class ExercisesPage extends StatelessWidget {
         title: const Text('Exercises'),
         centerTitle: true,
       ),
+      body: const Placeholder(),
     );
   }
 }
