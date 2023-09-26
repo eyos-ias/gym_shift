@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Screens/common/components/button.dart';
 import 'package:gym_shift/core/constants/colors.dart';
+import 'package:video_player/video_player.dart';
+
+import 'exercise_video.dart';
 
 class ExerciseDemo extends StatefulWidget {
   const ExerciseDemo({Key? key}) : super(key: key);
 
   @override
-  _ExerciseDemoState createState() => _ExerciseDemoState();
+  ExerciseDemoState createState() => ExerciseDemoState();
 }
 
-class _ExerciseDemoState extends State<ExerciseDemo> {
+class ExerciseDemoState extends State<ExerciseDemo> {
   late PageController _pageController;
   int _currentPageIndex = 0;
 
@@ -70,6 +73,7 @@ class _ExerciseDemoState extends State<ExerciseDemo> {
                 Container(
                   height: constraints.maxHeight * 0.6,
                   child: PageView(
+                    physics: const NeverScrollableScrollPhysics(),
                     controller: _pageController,
                     children: [
                       Container(
@@ -83,7 +87,10 @@ class _ExerciseDemoState extends State<ExerciseDemo> {
                       Container(
                         height: constraints.maxHeight * 0.6,
                         width: double.infinity,
-                        color: Colors.blue,
+                        color: Colors.transparent,
+                        child: VideoPlayerWidget(
+                          videoPath: "assets/videos/demo.mp4",
+                        ),
                       ),
                       Container(
                         height: constraints.maxHeight * 0.6,
@@ -102,9 +109,10 @@ class _ExerciseDemoState extends State<ExerciseDemo> {
                       IconButton(
                         iconSize: 55,
                         onPressed: () {
-                          _pageController.animateToPage(0,
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.easeInOut);
+                          _pageController.jumpToPage(0);
+                          // _pageController.animateToPage(0,
+                          //     duration: const Duration(milliseconds: 200),
+                          //     curve: Curves.easeInOut);
                         },
                         icon: Icon(
                           Icons.image,
@@ -116,9 +124,10 @@ class _ExerciseDemoState extends State<ExerciseDemo> {
                       IconButton(
                         iconSize: 55,
                         onPressed: () {
-                          _pageController.animateToPage(1,
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.easeInOut);
+                          _pageController.jumpToPage(1);
+                          // _pageController.animateToPage(1,
+                          //     duration: const Duration(milliseconds: 200),
+                          //     curve: Curves.easeInOut);
                         },
                         icon: Icon(
                           Icons.video_collection_rounded,
@@ -130,9 +139,10 @@ class _ExerciseDemoState extends State<ExerciseDemo> {
                       IconButton(
                         iconSize: 52,
                         onPressed: () {
-                          _pageController.animateToPage(2,
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.easeInOut);
+                          _pageController.jumpToPage(2);
+                          // _pageController.animateToPage(2,
+                          //     duration: const Duration(milliseconds: 200),
+                          //     curve: Curves.easeInOut);
                         },
                         icon: Icon(
                           Icons.document_scanner_rounded,

@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
     // });
     return MaterialApp(
       title: 'GymShift demo',
-      home: ExercisesPage(),
+      home: HomePage(),
     );
   }
 }
