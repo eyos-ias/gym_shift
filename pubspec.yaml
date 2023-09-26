@@ -75,6 +75,7 @@ flutter:
     - assets/images/
     - assets/vectors/
     - assets/images/sidebar_icons/
+    - assets/images/exercises/
  
 
   # An image asset can refer to one or more resolution-specific "variants", see
