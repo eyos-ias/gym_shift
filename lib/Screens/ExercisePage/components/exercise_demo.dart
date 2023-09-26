@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Screens/common/components/button.dart';
 import 'package:gym_shift/core/constants/colors.dart';
-import 'package:video_player/video_player.dart';
-
-import 'exercise_video.dart';
+import 'video_player_widget.dart';
 
 class ExerciseDemo extends StatefulWidget {
   const ExerciseDemo({Key? key}) : super(key: key);

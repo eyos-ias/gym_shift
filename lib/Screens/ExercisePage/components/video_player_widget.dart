@@ -4,13 +4,13 @@ import 'package:video_player/video_player.dart';
 class VideoPlayerWidget extends StatefulWidget {
   final String videoPath;
 
-  VideoPlayerWidget({required this.videoPath});
+  const VideoPlayerWidget({super.key, required this.videoPath});
 
   @override
-  _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
+  VideoPlayerWidgetState createState() => VideoPlayerWidgetState();
 }
 
-class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late VideoPlayerController _controller;
   bool _isPlaying = false;
 
@@ -19,7 +19,6 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     super.initState();
     _controller = VideoPlayerController.asset(widget.videoPath)
       ..initialize().then((_) {
-        // Ensure the first frame is shown and set state
         setState(() {});
       })
       ..addListener(() {
