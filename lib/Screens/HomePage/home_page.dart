@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/core/constants/colors.dart';
+import '../Notifications/notifications_page.dart';
 import './components/heading_section.dart';
 import './components/main_section.dart';
 import '../common/components/SideBar.dart';
@@ -22,7 +23,13 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NotificationsPage(),
+                ),
+              );
+            },
             icon: const Icon(Icons.notifications_none_outlined),
           )
         ],
