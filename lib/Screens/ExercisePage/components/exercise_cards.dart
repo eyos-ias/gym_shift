@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'exercise_demo.dart';
+
 class ExerciseCard extends StatelessWidget {
   final String title;
 
@@ -13,36 +15,43 @@ class ExerciseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.bottomCenter,
-      children: [
-        Image.asset(
-          imagePath,
-          width: double.infinity,
-          height: double.infinity,
-        ),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.white.withOpacity(0.2),
-                Colors.black.withOpacity(0.9),
-              ],
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const ExerciseDemo()),
+        );
+      },
+      child: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          Image.asset(
+            imagePath,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.white.withOpacity(0.2),
+                  Colors.black.withOpacity(0.9),
+                ],
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            title,
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              title,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

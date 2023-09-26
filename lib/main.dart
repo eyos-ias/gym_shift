@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/ExercisePage/components/exercise_demo.dart';
+import 'package:gym_shift/Screens/ExercisePage/exercise_page.dart';
 import 'package:gym_shift/Screens/HomePage/home_page.dart';
 import 'package:gym_shift/Screens/Notifications/notifications_page.dart';
 
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
     // });
     return MaterialApp(
       title: 'GymShift demo',
-      home: HomePage(),
+      home: ExercisesPage(),
     );
   }
 }
