@@ -36,8 +36,8 @@ class ExerciseCard extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.white.withOpacity(0.2),
-                  Colors.black.withOpacity(0.9),
+                  Colors.white.withOpacity(0),
+                  Colors.black.withOpacity(0.7),
                 ],
               ),
             ),

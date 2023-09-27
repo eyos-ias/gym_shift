@@ -68,13 +68,13 @@ class ExerciseDemoState extends State<ExerciseDemo> {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: constraints.maxHeight * 0.6,
                   child: PageView(
                     physics: const NeverScrollableScrollPhysics(),
                     controller: _pageController,
                     children: [
-                      Container(
+                      SizedBox(
                         height: constraints.maxHeight * 0.6,
                         width: double.infinity,
                         child: Image.asset(
@@ -86,7 +86,7 @@ class ExerciseDemoState extends State<ExerciseDemo> {
                         height: constraints.maxHeight * 0.6,
                         width: double.infinity,
                         color: Colors.transparent,
-                        child: VideoPlayerWidget(
+                        child: const VideoPlayerWidget(
                           videoPath: "assets/videos/demo.mp4",
                         ),
                       ),
