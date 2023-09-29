@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/LocalGyms/components/gym_card.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,15 +23,15 @@ class LocalGymsPage extends StatelessWidget {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return Stack(
+          return Column(
             children: [
-              Container(
-                width: double.infinity,
-                height: constraints.maxHeight * 0.05,
-                color: kPrimaryColor,
-              ),
-              Column(
+              Stack(
                 children: [
+                  Container(
+                    width: double.infinity,
+                    height: constraints.maxHeight * 0.05,
+                    color: kPrimaryColor,
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: constraints.maxWidth * 0.05,
@@ -44,6 +45,31 @@ class LocalGymsPage extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              //List Items
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: constraints.maxWidth * 0.05),
+                  child: ListView(
+                    children: [
+                      // Row(
+                      //   children: [
+                      //     SizedBox(
+                      //       child: Image.asset("assets/images/gym_card.png"),
+                      //     )
+                      //   ],
+                      // ),
+                      GymCard(
+                          // /constraints: constraints,
+                          name: "Strong Bodies Fitness \nCenter",
+                          rating: 4.8,
+                          address:
+                              "Address: Office #304 G/F Unique World Business Centre United State (USA)  ",
+                          imagePath: "assets/images/gym_card.png"),
+                    ],
+                  ),
+                ),
               ),
             ],
           );
