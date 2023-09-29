@@ -5,7 +5,9 @@ import '../../../core/constants/colors.dart';
 class MyButton extends StatelessWidget {
   final String text;
   final void Function() onPressed;
-  const MyButton({
+  Color? color = kPrimaryColor;
+  MyButton({
+    this.color,
     required this.onPressed,
     required this.text,
     super.key,
@@ -19,7 +21,7 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+            backgroundColor: MaterialStateProperty.all(color),
           ),
           onPressed: onPressed,
           child: Container(

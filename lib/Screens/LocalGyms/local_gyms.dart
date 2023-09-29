@@ -36,11 +36,12 @@ class LocalGymsPage extends StatelessWidget {
                         horizontal: constraints.maxWidth * 0.05,
                         vertical: constraints.maxHeight * 0.015),
                     child: Material(
-                        elevation: 3,
-                        borderRadius: BorderRadius.circular(13),
-                        child: SearchComponent(
-                          constraints: constraints,
-                        )),
+                      elevation: 3,
+                      borderRadius: BorderRadius.circular(13),
+                      child: SearchComponent(
+                        constraints: constraints,
+                      ),
+                    ),
                   ),
                 ],
               ),
