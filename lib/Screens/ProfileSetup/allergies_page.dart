@@ -48,7 +48,7 @@ class AllergiesPage extends StatelessWidget {
                     color: kTextColor.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  child: Wrap(
+                  child: const Wrap(
                     spacing: 8.0,
                     runSpacing: 4.0,
                     children: [
@@ -90,7 +90,11 @@ class AllergiesPage extends StatelessWidget {
               )
             ],
           ),
-          MyButton(onPressed: () {}, text: "Next")
+          MyButton(
+              onPressed: () {
+                Navigator.popAndPushNamed(context, '/homepage');
+              },
+              text: "Next")
         ],
       ),
     );

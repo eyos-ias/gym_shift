@@ -5,6 +5,7 @@ import 'package:gym_shift/Screens/HomePage/home_page.dart';
 import 'package:gym_shift/Screens/LocalGyms/components/gym_details.dart';
 import 'package:gym_shift/Screens/LocalGyms/components/reviews_page.dart';
 import 'package:gym_shift/Screens/LocalGyms/local_gyms.dart';
+import 'package:gym_shift/Screens/MealPlans/meal_plans.dart';
 import 'package:gym_shift/Screens/Notifications/notifications_page.dart';
 
 import 'package:gym_shift/Screens/Onboarding/onboarding_screen.dart';
@@ -18,6 +19,7 @@ import 'package:gym_shift/Screens/RegistrationPage/otp_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/registration_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/signup_page.dart';
 import 'package:gym_shift/Screens/SplashScreen/splash_screen.dart';
+import 'package:gym_shift/Screens/WorkoutPlans/workout_plans.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,26 +39,14 @@ class MyApp extends StatelessWidget {
         '/registration': (context) => const RegistrationPage(),
         '/profile_setup': (context) => const ProfilePicturePage(),
         '/homepage': (context) => const HomePage(),
-        //'/workout_plans':(context)=> const WorkoutPage(),
         '/local_gyms': (context) => const LocalGymsPage(),
-        //'./subscription':(context)=> const SubscriptionPage(),
-        //'./challenges':(context)=> const Challenges(),
-
         '/notifications': (context) => const NotificationsPage(),
-
-        // '/login': (context) => const LoginPage(),
-        // '/forgot': (context) => const ForgotPasswordPage(),
-        // '/signup': (context) => const SignUpPage(),
-        // '/otp': (context) => const OtpScreen(),
-        // '/bmi': (context) => const BmiPage(),
-        // '/allergy': (context) => AllergiesPage(),
-        // '/profile': (context) => const ProfilePicturePage(),
-        // '/goals': (context) => const GoalsPage(),
+        '/workout_plans': (context) => const WorkoutPlans(),
+        '/meal_plans': (context) => const MealPlansPage(),
+        '/local_gym': (context) => LocalGymsPage(),
+        '/subscription': (context) => const LocalGymsPage(),
       },
+      //home: WorkoutPlans(),
     );
-    // return MaterialApp(
-    //   title: 'GymShift demo',
-    //   home: LocalGymsPage(),
-    // );
   }
 }

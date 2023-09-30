@@ -103,7 +103,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             MaterialStateProperty.all(kPrimaryColor)),
                     onPressed: () {
                       //Navigator.pop(context);
-                      Navigator.pushNamed(context, '/registration');
+                      Navigator.popAndPushNamed(context, '/registration');
                     },
                     child: const Text(
                       'Get Started',

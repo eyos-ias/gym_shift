@@ -60,7 +60,10 @@ class BmiPage extends StatelessWidget {
               const SizedBox(height: 20),
               MyButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/goals');
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return GoalsPage();
+                    }));
                   },
                   text: "Next")
             ],

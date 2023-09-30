@@ -39,7 +39,10 @@ class RegistrationPage extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/signup');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,
@@ -54,7 +57,11 @@ class RegistrationPage extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/login');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,

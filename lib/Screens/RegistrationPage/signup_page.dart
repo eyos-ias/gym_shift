@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/ProfileSetup/bmi_page.dart';
+import 'package:gym_shift/Screens/common/components/button.dart';
 import '../../core/constants/colors.dart';
 import '../common/components/text_field.dart';
 
@@ -61,28 +63,16 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 15.0),
                 //sign in button
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(kPrimaryColor),
-                      ),
-                      onPressed: () {},
-                      child: Container(
-                        padding: const EdgeInsets.all(20.0),
-                        child: const Center(
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+
+                MyButton(
+                    onPressed: () {
+                      // Navigator.pushNamed(context, '/homepage');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return BmiPage();
+                      }));
+                    },
+                    text: "Sign Up"),
                 const SizedBox(height: 30),
                 //not a member?
                 Row(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/RegistrationPage/forgot_password.dart';
+import 'package:gym_shift/Screens/common/components/button.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 
 import 'signup_page.dart';
@@ -81,34 +83,22 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/forgot');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswordPage(),
+                        ),
+                      );
                     },
                     child: const Text("Forgot Password?")),
                 SizedBox(height: 15.0),
                 //sign in button
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(kPrimaryColor),
-                      ),
-                      onPressed: () {},
-                      child: Container(
-                        padding: const EdgeInsets.all(20.0),
-                        child: const Center(
-                          child: Text(
-                            'Sign In',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                MyButton(
+                    onPressed: () {
+                      Navigator.popAndPushNamed(context, '/homepage');
+                    },
+                    text: "SignIn"),
                 const SizedBox(height: 30),
                 //not a member?
                 Row(
