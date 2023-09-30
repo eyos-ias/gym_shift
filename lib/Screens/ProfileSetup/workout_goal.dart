@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/ProfileSetup/allergies_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/components/goal_tiles.dart';
 import 'package:gym_shift/Screens/common/components/button.dart';
 
@@ -59,7 +60,14 @@ class GoalsPage extends StatelessWidget {
                   ],
                 ),
               ),
-              MyButton(onPressed: () {}, text: "Next")
+              MyButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return AllergiesPage();
+                    }));
+                  },
+                  text: "Next")
             ],
           ),
         ),

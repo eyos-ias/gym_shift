@@ -64,7 +64,7 @@ class SideBar extends StatelessWidget {
                 ),
                 title: const Text("Home"),
                 onTap: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.popAndPushNamed(context, '/homepage');
                 },
               ),
               ListTile(
