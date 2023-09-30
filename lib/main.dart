@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/Screens/ChallengesPage/challenges_page.dart';
 import 'package:gym_shift/Screens/ExercisePage/components/exercise_demo.dart';
 import 'package:gym_shift/Screens/ExercisePage/exercise_page.dart';
 import 'package:gym_shift/Screens/HomePage/home_page.dart';
@@ -19,6 +20,7 @@ import 'package:gym_shift/Screens/RegistrationPage/otp_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/registration_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/signup_page.dart';
 import 'package:gym_shift/Screens/SplashScreen/splash_screen.dart';
+import 'package:gym_shift/Screens/SubscriptionPage/subscription_page.dart';
 import 'package:gym_shift/Screens/WorkoutPlans/workout_plans.dart';
 
 void main() {
@@ -32,21 +34,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GymShift demo',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const OnboardingScreen(),
-        '/onboarding': (context) => const OnboardingScreen(),
-        '/registration': (context) => const RegistrationPage(),
-        '/profile_setup': (context) => const ProfilePicturePage(),
-        '/homepage': (context) => const HomePage(),
-        '/local_gyms': (context) => const LocalGymsPage(),
-        '/notifications': (context) => const NotificationsPage(),
-        '/workout_plans': (context) => const WorkoutPlans(),
-        '/meal_plans': (context) => const MealPlansPage(),
-        '/local_gym': (context) => LocalGymsPage(),
-        '/subscription': (context) => const LocalGymsPage(),
-      },
-      //home: WorkoutPlans(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => const OnboardingScreen(),
+      //   '/onboarding': (context) => const OnboardingScreen(),
+      //   '/registration': (context) => const RegistrationPage(),
+      //   '/profile_setup': (context) => const ProfilePicturePage(),
+      //   '/homepage': (context) => const HomePage(),
+      //   '/local_gyms': (context) => const LocalGymsPage(),
+      //   '/notifications': (context) => const NotificationsPage(),
+      //   '/workout_plans': (context) => const WorkoutPlans(),
+      //   '/meal_plans': (context) => const MealPlansPage(),
+      //   '/local_gym': (context) => const LocalGymsPage(),
+      //   '/subscription': (context) => const SubscriptionPage(),
+      //   '/challenges': (context) => const ChallengesPage(),
+      // },
+      home: ChallengesPage(),
     );
   }
 }
