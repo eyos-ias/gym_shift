@@ -34,22 +34,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GymShift demo',
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => const OnboardingScreen(),
-      //   '/onboarding': (context) => const OnboardingScreen(),
-      //   '/registration': (context) => const RegistrationPage(),
-      //   '/profile_setup': (context) => const ProfilePicturePage(),
-      //   '/homepage': (context) => const HomePage(),
-      //   '/local_gyms': (context) => const LocalGymsPage(),
-      //   '/notifications': (context) => const NotificationsPage(),
-      //   '/workout_plans': (context) => const WorkoutPlans(),
-      //   '/meal_plans': (context) => const MealPlansPage(),
-      //   '/local_gym': (context) => const LocalGymsPage(),
-      //   '/subscription': (context) => const SubscriptionPage(),
-      //   '/challenges': (context) => const ChallengesPage(),
-      // },
-      home: ChallengesPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const OnboardingScreen(),
+        '/onboarding': (context) => const OnboardingScreen(),
+        '/registration': (context) => const RegistrationPage(),
+        '/profile_setup': (context) => const ProfilePicturePage(),
+        '/homepage': (context) => const HomePage(),
+        '/local_gyms': (context) => const LocalGymsPage(),
+        '/notifications': (context) => const NotificationsPage(),
+        '/workout_plans': (context) => const WorkoutPlans(),
+        '/meal_plans': (context) => const MealPlansPage(),
+        '/local_gym': (context) => const LocalGymsPage(),
+        '/subscription': (context) => const SubscriptionPage(),
+        '/challenges': (context) => const ChallengesPage(),
+      },
     );
   }
 }

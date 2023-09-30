@@ -139,7 +139,7 @@ class SideBar extends StatelessWidget {
                   height: 24,
                   width: 24,
                 ),
-                title: Text("Profile"),
+                title: const Text("Profile"),
                 onTap: () {
                   Navigator.pushNamed(context, '/profile');
                 },

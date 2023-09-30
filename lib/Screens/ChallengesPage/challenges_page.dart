@@ -116,7 +116,7 @@ class ChallengesPage extends StatelessWidget {
                     title: const Wrap(
                       children: [
                         Text(
-                          "Turkey Meatballs",
+                          "Turkey Meatballs in marinara sauce",
                           style: TextStyle(color: kTextColor),
                         ),
                       ],

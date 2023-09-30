@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WorkoutDemonstration extends StatelessWidget {
-  const WorkoutDemonstration({super.key});
+class MealPlansPage extends StatelessWidget {
+  const MealPlansPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +12,12 @@ class WorkoutDemonstration extends StatelessWidget {
         elevation: 5,
         centerTitle: true,
         title: const Text(
-          "Notifications",
+          "Profile",
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: ListView(
-        children: [],
+      body: Center(
+        child: const Text("Under re-design"),
       ),
     );
   }
