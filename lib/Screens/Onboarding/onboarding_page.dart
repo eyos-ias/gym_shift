@@ -6,12 +6,13 @@ class OnboardingPage extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String description;
-
-  const OnboardingPage(
+  BoxConstraints constraints;
+  OnboardingPage(
       {super.key,
       required this.imageUrl,
       required this.title,
-      required this.description});
+      required this.description,
+      required this.constraints});
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +23,23 @@ class OnboardingPage extends StatelessWidget {
         children: [
           SvgPicture.asset(
             imageUrl,
-            width: 300,
-            height: 300,
+            width: constraints.maxWidth * 0.8,
+            height: constraints.maxHeight * 0.4,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: constraints.maxHeight * 0.03),
           Text(
             title,
             style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: constraints.maxHeight * 0.03,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            padding:
+                EdgeInsets.symmetric(horizontal: constraints.maxWidth * 0.06),
             child: Text(
               description,
+              textAlign: TextAlign.justify,
               style: const TextStyle(color: kTextColor),
             ),
           ),

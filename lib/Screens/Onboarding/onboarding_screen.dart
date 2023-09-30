@@ -26,37 +26,42 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.only(bottom: 80),
-          child: PageView(
-            onPageChanged: (index) {
-              setState(() {
-                isLastPage = index == 2;
-              });
-            },
-            controller: pageController,
-            children: const [
-              OnboardingPage(
-                imageUrl: "assets/vectors/onboarding1.svg",
-                title: "Workout Anywhere",
-                description:
-                    "You have the flexibility to engage in your workout either within the comfort of your home, outdoors, or at the gym, all without requiring any equipment.",
-              ),
-              OnboardingPage(
-                imageUrl: "assets/vectors/onboarding2.svg",
-                title: "Meal Plans",
-                description:
-                    "We provide personalized meal plans meticulously crafted to align seamlessly with your unique fitness aspirations and cater to your individual dietary preferences and needs.",
-              ),
-              OnboardingPage(
-                imageUrl: "assets/vectors/onboarding3.svg",
-                title: "Stay Strong & Healthy",
-                description:
-                    "Our goal is your full program enjoyment, paired with enduring health and positivity. We're committed to supporting you as you embrace the program fostering both physical well-being and an optimistic mindset.",
-              ),
-            ],
-          ),
-        ),
+        child: LayoutBuilder(builder: (context, constraints) {
+          return Container(
+            padding: const EdgeInsets.only(bottom: 80),
+            child: PageView(
+              onPageChanged: (index) {
+                setState(() {
+                  isLastPage = index == 2;
+                });
+              },
+              controller: pageController,
+              children: [
+                OnboardingPage(
+                  constraints: constraints,
+                  imageUrl: "assets/vectors/onboarding1.svg",
+                  title: "Workout Anywhere",
+                  description:
+                      "You have the flexibility to engage in your workout either within the comfort of your home, outdoors, or at the gym, all without requiring any equipment.",
+                ),
+                OnboardingPage(
+                  constraints: constraints,
+                  imageUrl: "assets/vectors/onboarding2.svg",
+                  title: "Meal Plans",
+                  description:
+                      "We provide personalized meal plans meticulously crafted to align seamlessly with your unique fitness aspirations and cater to your individual dietary preferences and needs.",
+                ),
+                OnboardingPage(
+                  constraints: constraints,
+                  imageUrl: "assets/vectors/onboarding3.svg",
+                  title: "Stay Strong & Healthy",
+                  description:
+                      "Our goal is your full program enjoyment, paired with enduring health and positivity. We're committed to supporting you as you embrace the program fostering both physical well-being and an optimistic mindset.",
+                ),
+              ],
+            ),
+          );
+        }),
       ),
       bottomSheet: Container(
         color: kBackgroundColor,

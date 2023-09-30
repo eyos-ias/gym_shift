@@ -3,6 +3,7 @@ import 'package:gym_shift/Screens/LocalGyms/components/gym_card.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'components/gym_details.dart';
 import 'components/search_settings.dart';
 
 class LocalGymsPage extends StatelessWidget {
@@ -60,13 +61,21 @@ class LocalGymsPage extends StatelessWidget {
                       //     )
                       //   ],
                       // ),
-                      GymCard(
-                          // /constraints: constraints,
-                          name: "Strong Bodies Fitness \nCenter",
-                          rating: 4.8,
-                          address:
-                              "Address: Office #304 G/F Unique World Business Centre United State (USA)  ",
-                          imagePath: "assets/images/gym_card.png"),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const GymDetails();
+                          }));
+                        },
+                        child: GymCard(
+                            // /constraints: constraints,
+                            name: "Strong Bodies Fitness \nCenter",
+                            rating: 4.8,
+                            address:
+                                "Address: Office #304 G/F Unique World Business Centre United State (USA)  ",
+                            imagePath: "assets/images/gym_card.png"),
+                      ),
                     ],
                   ),
                 ),

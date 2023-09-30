@@ -30,15 +30,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GymShift demo',
-      initialRoute: '/gym_details',
+      initialRoute: '/',
       routes: {
         '/': (context) => const OnboardingScreen(),
         '/onboarding': (context) => const OnboardingScreen(),
+        '/registration': (context) => const RegistrationPage(),
         '/profile_setup': (context) => const ProfilePicturePage(),
         '/homepage': (context) => const HomePage(),
+        //'/workout_plans':(context)=> const WorkoutPage(),
         '/local_gyms': (context) => const LocalGymsPage(),
+        //'./subscription':(context)=> const SubscriptionPage(),
+        //'./challenges':(context)=> const Challenges(),
+
         '/notifications': (context) => const NotificationsPage(),
-        '/gym_details': (context) => GymDetails(),
+
         // '/login': (context) => const LoginPage(),
         // '/forgot': (context) => const ForgotPasswordPage(),
         // '/signup': (context) => const SignUpPage(),
