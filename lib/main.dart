@@ -10,6 +10,7 @@ import 'package:gym_shift/Screens/MealPlans/meal_plans.dart';
 import 'package:gym_shift/Screens/Notifications/notifications_page.dart';
 
 import 'package:gym_shift/Screens/Onboarding/onboarding_screen.dart';
+import 'package:gym_shift/Screens/ProfilePage/profile_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/allergies_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/bmi_page.dart';
 import 'package:gym_shift/Screens/ProfileSetup/profile_photo_page.dart';
@@ -19,6 +20,7 @@ import 'package:gym_shift/Screens/RegistrationPage/login_page.dart';
 import 'package:gym_shift/Screens/RegistrationPage/otp_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/registration_screen.dart';
 import 'package:gym_shift/Screens/RegistrationPage/signup_page.dart';
+import 'package:gym_shift/Screens/Settings/settings.dart';
 import 'package:gym_shift/Screens/SplashScreen/splash_screen.dart';
 import 'package:gym_shift/Screens/SubscriptionPage/subscription_page.dart';
 import 'package:gym_shift/Screens/WorkoutPlans/workout_plans.dart';
@@ -46,6 +48,8 @@ class MyApp extends StatelessWidget {
         '/workout_plans': (context) => const WorkoutPlans(),
         '/meal_plans': (context) => const MealPlansPage(),
         '/local_gym': (context) => const LocalGymsPage(),
+        '/profile': (context) => ProfilePage(),
+        '/settings': (context) => const SettingsPage(),
         '/subscription': (context) => const SubscriptionPage(),
         '/challenges': (context) => const ChallengesPage(),
       },
