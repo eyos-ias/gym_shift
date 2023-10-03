@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: AppBar(
-        title: const Text("GymShift Home"),
+        title: const Text("Your Playground"),
         backgroundColor: kPrimaryColor,
         elevation: 0,
         actions: [

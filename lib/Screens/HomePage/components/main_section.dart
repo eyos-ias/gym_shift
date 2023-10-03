@@ -49,7 +49,7 @@ class MainSection extends StatelessWidget {
                 height: constraints.maxHeight * 0.02,
               ),
               Text(
-                "Your Exercises",
+                "Exercises",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: kTextColor,
