@@ -93,7 +93,8 @@ class ExerciseDemoState extends State<ExerciseDemo> {
                       Container(
                         height: constraints.maxHeight * 0.6,
                         width: double.infinity,
-                        color: Colors.green,
+                        //color: Colors.green,
+                        child: Center(child: Text("Description")),
                       ),
                     ],
                   ),
