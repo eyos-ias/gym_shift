@@ -39,22 +39,27 @@ class GoalsPage extends StatelessWidget {
                   children: [
                     GoalTile(
                       title: "Build Muscle",
+                      subtitle: "Gain strength and size effectively",
                       icon: Icon(Icons.add),
                     ),
                     GoalTile(
                       title: "Lose Fat",
+                      subtitle: "Achieve a lean and toned physique",
                       icon: Icon(Icons.remove),
                     ),
                     GoalTile(
                       title: "Maintain Weight",
+                      subtitle: "Stay consistent and healthy",
                       icon: Icon(Icons.accessibility_new_rounded),
                     ),
                     GoalTile(
                       title: "Shred",
+                      subtitle: "Cut down for a defined look",
                       icon: const Icon(Icons.emoji_food_beverage_rounded),
                     ),
                     GoalTile(
                       title: "Bulk",
+                      subtitle: "Pack on muscle mass",
                       icon: const Icon(Icons.food_bank_outlined),
                     )
                   ],

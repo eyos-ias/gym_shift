@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 
 class GoalTile extends StatefulWidget {
+  String? subtitle;
   String? title;
   Icon? icon;
-  GoalTile({Key? key, required this.title, required this.icon})
+  GoalTile({Key? key, required this.title, required this.icon, this.subtitle})
       : super(key: key);
 
   @override
@@ -42,7 +43,16 @@ class _GoalTileState extends State<GoalTile> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 widget.icon!,
-                Text(widget.title!),
+                Text(
+                  widget.title!,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  widget.subtitle!,
+                  textAlign: TextAlign.center,
+                  style:
+                      TextStyle(fontWeight: FontWeight.w200, color: kTextColor),
+                ),
               ],
             ),
           ),
