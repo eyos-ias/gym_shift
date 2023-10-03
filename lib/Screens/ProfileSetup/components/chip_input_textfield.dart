@@ -3,13 +3,16 @@ import 'package:gym_shift/core/constants/colors.dart';
 //import 'package:flutter_tags_x/flutter_tags_x.dart';
 
 class ChipInputTextField extends StatefulWidget {
+  final List<Item> items;
+
+  ChipInputTextField({Key? key, required this.items}) : super(key: key);
   @override
   _ChipInputTextFieldState createState() => _ChipInputTextFieldState();
 }
 
 class _ChipInputTextFieldState extends State<ChipInputTextField> {
   final TextEditingController _textEditingController = TextEditingController();
-  final List<Item> _items = [];
+  //final List<Item> _items = [];
 
   void _showModalInput(BuildContext context) {
     showDialog(
@@ -25,7 +28,7 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
               for (var chip in chips) {
                 if (chip.isNotEmpty) {
                   setState(() {
-                    _items.add(Item(title: chip));
+                    widget.items.add(Item(title: chip));
                   });
                 }
               }
@@ -48,7 +51,7 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
                 chips.forEach((chip) {
                   if (chip.isNotEmpty) {
                     setState(() {
-                      _items.add(Item(title: chip));
+                      widget.items.add(Item(title: chip));
                     });
                   }
                 });
@@ -78,7 +81,7 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
             Wrap(
               spacing: 8.0,
               runSpacing: 4.0,
-              children: _items.map((item) {
+              children: widget.items.map((item) {
                 return Chip(
                   backgroundColor: kPrimaryColor.withOpacity(0.2),
                   label: Text(item.title),
@@ -88,7 +91,7 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
                   ),
                   onDeleted: () {
                     setState(() {
-                      _items.remove(item);
+                      widget.items.remove(item);
                     });
                   },
                 );

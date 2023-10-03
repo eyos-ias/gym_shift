@@ -29,6 +29,7 @@ class BmiPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               MyTextField(
+                maxLength: 2,
                 hintText: "Enter BMI",
                 numOnly: true,
               ),
