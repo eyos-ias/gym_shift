@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Screens/ProfileSetup/bmi_page.dart';
+import 'package:gym_shift/Screens/RegistrationPage/components/drop_down_field.dart';
 import 'package:gym_shift/Screens/common/components/button.dart';
 import '../../core/constants/colors.dart';
 import '../common/components/text_field.dart';
@@ -61,9 +62,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   hintText: "Email",
                 ),
                 const SizedBox(height: 15.0),
-                MyTextField(
-                  hintText: "Gender",
-                ),
+                // MyTextField(
+                //   hintText: "Gender",
+                // ),
+                MyGenderDropdown(),
                 const SizedBox(height: 15.0),
                 MyTextField(
                   hintText: "Password",
