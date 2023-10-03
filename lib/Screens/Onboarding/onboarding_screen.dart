@@ -14,6 +14,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final pageController = PageController();
   bool isLastPage = false;
+  bool isFirstPage = true;
 
   @override
   void dispose() {
@@ -33,6 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onPageChanged: (index) {
                 setState(() {
                   isLastPage = index == 2;
+                  isFirstPage = index == 0;
                 });
               },
               controller: pageController,
@@ -70,16 +72,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton(
-              onPressed: () {
-                pageController.previousPage(
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease,
-                );
-              },
-              child:
-                  const Text("Previous", style: TextStyle(color: kTextColor)),
-            ),
+            isFirstPage
+                ? const SizedBox(
+                    width: 30,
+                  )
+                : TextButton(
+                    onPressed: () {
+                      pageController.previousPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.ease,
+                      );
+                    },
+                    child: const Text("Previous",
+                        style: TextStyle(color: kTextColor)),
+                  ),
             Center(
               child: SmoothPageIndicator(
                 onDotClicked: (index) => pageController.animateToPage(index,
