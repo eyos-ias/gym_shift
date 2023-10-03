@@ -58,16 +58,19 @@ class BmiPage extends StatelessWidget {
               MyTextField(
                 hintText: "Enter Height (cm)",
                 numOnly: true,
+                maxLength: 3,
               ),
               const SizedBox(height: 20),
               MyTextField(
                 hintText: "Enter Weight (kg)",
+                maxLength: 3,
                 numOnly: true,
               ),
               const SizedBox(height: 20),
               MyTextField(
                 hintText: "Enter Your Age.",
                 numOnly: true,
+                maxLength: 2,
               ),
               const SizedBox(height: 20),
               MyButton(
