@@ -28,7 +28,10 @@ class BmiPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              const MyTextField(hintText: "Enter BMI"),
+              MyTextField(
+                hintText: "Enter BMI",
+                numOnly: true,
+              ),
               const SizedBox(height: 20),
               const Row(
                 children: [
@@ -52,11 +55,20 @@ class BmiPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              const MyTextField(hintText: "Enter Height (cm)"),
+              MyTextField(
+                hintText: "Enter Height (cm)",
+                numOnly: true,
+              ),
               const SizedBox(height: 20),
-              const MyTextField(hintText: "Enter Weight (kg)"),
+              MyTextField(
+                hintText: "Enter Weight (kg)",
+                numOnly: true,
+              ),
               const SizedBox(height: 20),
-              const MyTextField(hintText: "Enter Your Age (cm)"),
+              MyTextField(
+                hintText: "Enter Your Age.",
+                numOnly: true,
+              ),
               const SizedBox(height: 20),
               MyButton(
                   onPressed: () {
