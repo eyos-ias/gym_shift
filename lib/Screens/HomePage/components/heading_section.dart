@@ -9,6 +9,18 @@ class HeadingSection extends StatelessWidget {
     super.key,
   });
 
+  String _getGreeting() {
+    final hour = DateTime.now().hour;
+
+    if (hour < 12) {
+      return "Good morning!";
+    } else if (hour < 17) {
+      return "Good afternoon!";
+    } else {
+      return "Good evening!";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +39,7 @@ class HeadingSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Good morning!",
+                      _getGreeting(),
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
                           color: Colors.white60,
