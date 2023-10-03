@@ -16,6 +16,17 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          "Signup",
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
@@ -23,10 +34,10 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Sign Up',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
-                ),
+                // const Text(
+                //   'Sign Up',
+                //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                // ),
                 Image.asset(
                   "assets/Logo.png",
                   width: 150,
@@ -41,24 +52,24 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 50,
                 ),
                 // Email input field
-                const MyTextField(
+                MyTextField(
                   hintText: "Full Name",
                 ),
                 const SizedBox(height: 15.0),
                 //password input field
-                const MyTextField(
+                MyTextField(
                   hintText: "Email",
                 ),
                 const SizedBox(height: 15.0),
-                const MyTextField(
+                MyTextField(
                   hintText: "Gender",
                 ),
                 const SizedBox(height: 15.0),
-                const MyTextField(
+                MyTextField(
                   hintText: "Password",
                 ),
                 const SizedBox(height: 15.0),
-                const MyTextField(
+                MyTextField(
                   hintText: "Confirm password",
                 ),
                 const SizedBox(height: 15.0),

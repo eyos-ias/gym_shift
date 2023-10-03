@@ -16,6 +16,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          "Login",
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
@@ -26,10 +37,10 @@ class _LoginPageState extends State<LoginPage> {
                 // const SizedBox(
                 //   height: 40,
                 // ),
-                const Text(
-                  'Login',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
-                ),
+                // const Text(
+                //   'Login',
+                //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                // ),
                 Image.asset(
                   "assets/Logo.png",
                   width: 150,
