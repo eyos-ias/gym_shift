@@ -4,10 +4,18 @@ import 'package:flutter/services.dart';
 class MyTextField extends StatelessWidget {
   final String hintText;
   final bool numOnly;
-  int? maxLength;
-  MyTextField(
-      {Key? key, required this.hintText, this.numOnly = false, this.maxLength})
-      : super(key: key);
+  final int? maxLength;
+  final ValueChanged<String>? onChanged;
+  final TextEditingController? controller;
+
+  MyTextField({
+    Key? key,
+    required this.hintText,
+    this.numOnly = false,
+    this.maxLength,
+    this.onChanged,
+    this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +33,12 @@ class MyTextField extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 20.0),
           child: TextField(
-            maxLength: numOnly ? maxLength : null,
+            controller: controller,
+            maxLength: maxLength,
             keyboardType: keyboardType,
             inputFormatters:
                 numOnly ? [FilteringTextInputFormatter.digitsOnly] : [],
+            onChanged: onChanged,
             decoration: InputDecoration(
                 border: InputBorder.none, hintText: hintText, counterText: ""),
           ),

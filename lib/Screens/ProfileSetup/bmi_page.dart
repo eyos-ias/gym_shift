@@ -1,22 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/ProfileSetup/workout_goal.dart';
 import 'package:gym_shift/Screens/common/components/button.dart';
 import 'package:gym_shift/Screens/common/components/text_field.dart';
-import 'package:gym_shift/core/constants/colors.dart';
 
-class BmiPage extends StatelessWidget {
-  const BmiPage({super.key});
+class BmiPage extends StatefulWidget {
+  const BmiPage({Key? key}) : super(key: key);
+
+  @override
+  _BmiPageState createState() => _BmiPageState();
+}
+
+class _BmiPageState extends State<BmiPage> {
+  TextEditingController heightController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  String bmiResult = '';
+
+  void calculateBMI() {
+    if (heightController.text.isNotEmpty && weightController.text.isNotEmpty) {
+      double height =
+          double.parse(heightController.text) / 100; // Convert cm to meters
+      double weight = double.parse(weightController.text);
+
+      double bmi = weight / (height * height);
+
+      setState(() {
+        bmiResult =
+            "Your BMI: ${bmi.toStringAsFixed(2)}"; // Format BMI to two decimal places
+      });
+    } else {
+      setState(() {
+        bmiResult = '';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColor,
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          "",
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
+        ),
+      ),
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Text('Incorporate Your BMI',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
+              const Text(
+                'Incorporate Your BMI',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+              ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20),
                 child: Text(
@@ -24,68 +63,52 @@ class BmiPage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w100,
-                      color: kTextColor),
+                      color: Colors.black),
                 ),
               ),
               const SizedBox(height: 10),
               MyTextField(
-                maxLength: 2,
-                hintText: "Enter BMI",
-                numOnly: true,
-              ),
-              const SizedBox(height: 20),
-              const Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 80.0, right: 10),
-                      child: Divider(
-                        thickness: 2,
-                      ),
-                    ),
-                  ),
-                  Text("or"),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 10.0, right: 80),
-                      child: Divider(
-                        thickness: 2,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              MyTextField(
+                controller: heightController,
                 hintText: "Enter Height (cm)",
                 numOnly: true,
                 maxLength: 3,
+                onChanged: (value) {
+                  calculateBMI();
+                },
               ),
               const SizedBox(height: 20),
               MyTextField(
+                controller: weightController,
                 hintText: "Enter Weight (kg)",
-                maxLength: 3,
                 numOnly: true,
+                maxLength: 3,
+                onChanged: (value) {
+                  calculateBMI();
+                },
               ),
               const SizedBox(height: 20),
-              MyTextField(
-                hintText: "Enter Your Age.",
-                numOnly: true,
-                maxLength: 2,
+              Text(
+                bmiResult,
+                style: TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 20),
               MyButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return GoalsPage();
-                    }));
-                  },
-                  text: "Next")
+                onPressed: () {
+                  // You can navigate to the next screen or perform other actions here
+                },
+                text: "Next",
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    heightController.dispose();
+    weightController.dispose();
+    super.dispose();
   }
 }
