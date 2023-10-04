@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Screens/ProfileSetup/components/chip_input_textfield.dart';
-import 'package:gym_shift/Screens/ProfileSetup/diet_page.dart';
 import 'package:gym_shift/Screens/common/components/button.dart';
 import 'package:gym_shift/core/constants/colors.dart';
 
-class AllergiesPage extends StatefulWidget {
-  AllergiesPage({super.key});
+class DietPage extends StatefulWidget {
+  DietPage({super.key});
 
   @override
-  State<AllergiesPage> createState() => _AllergiesPageState();
+  State<DietPage> createState() => _DietPageState();
 }
 
-class _AllergiesPageState extends State<AllergiesPage> {
+class _DietPageState extends State<DietPage> {
   List<Item> itemList = [];
 
-  List<String> recommendations_list = [
-    "Egg",
-    "Milk",
-    "Peanuts",
-    "Tree Nuts",
-    "Fish",
-    "Shellfish",
-    "Wheat",
-    "Soy"
+  List<String> diet_list = [
+    "Lactose Intolerant",
+    "Vegan",
+    "Gluten Free",
+    "Vegetables",
+    "Omnivore",
   ];
 
   void addToItems(String itemName) {
@@ -42,7 +38,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          "Allergies Food",
+          "Dietary Type",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -60,7 +56,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
             ),
             const Center(
               child: Text(
-                "Add your allergies food",
+                "Choose your diet",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -68,12 +64,13 @@ class _AllergiesPageState extends State<AllergiesPage> {
             const SizedBox(height: 30),
             ChipInputTextField(
               items: itemList,
+              input_option: false,
             ),
             const SizedBox(height: 30),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Text("Recommended for you"),
+                const Text("Diet Options"),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
@@ -95,7 +92,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                         //     backgroundColor: Colors.white,
                         //   ),
                         // ),
-                        ...recommendations_list
+                        ...diet_list
                             .map((e) => GestureDetector(
                                   onTap: () {
                                     addToItems(e);
@@ -114,9 +111,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
             ),
             MyButton(
                 onPressed: () {
-                  //  Navigator.popAndPushNamed(context, '/homepage');
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DietPage()));
+                  Navigator.popAndPushNamed(context, '/homepage');
                 },
                 text: "Next")
           ],

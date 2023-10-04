@@ -4,8 +4,9 @@ import 'package:gym_shift/core/constants/colors.dart';
 
 class ChipInputTextField extends StatefulWidget {
   final List<Item> items;
-
-  ChipInputTextField({Key? key, required this.items}) : super(key: key);
+  bool? input_option;
+  ChipInputTextField({Key? key, required this.items, this.input_option = true})
+      : super(key: key);
   @override
   _ChipInputTextFieldState createState() => _ChipInputTextFieldState();
 }
@@ -100,12 +101,20 @@ class _ChipInputTextFieldState extends State<ChipInputTextField> {
             Row(
               //mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: () {
-                    _showModalInput(context);
-                  },
-                ),
+                widget.input_option!
+                    ? IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: () {
+                          _showModalInput(context);
+                        },
+                      )
+                    : IconButton(
+                        icon: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
               ],
             ),
           ],
