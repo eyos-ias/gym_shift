@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/routes.dart';
 import 'package:gym_shift/screens/ChallengesPage/challenges_page.dart';
 import 'package:gym_shift/screens/ExercisePage/components/exercise_demo.dart';
 import 'package:gym_shift/screens/ExercisePage/exercise_page.dart';
@@ -38,22 +39,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GymShift demo',
       initialRoute: '/',
-      routes: {
-        '/': (context) => const OnboardingScreen(),
-        '/onboarding': (context) => const OnboardingScreen(),
-        '/registration': (context) => const RegistrationPage(),
-        '/profile_setup': (context) => const ProfilePicturePage(),
-        '/homepage': (context) => const HomePage(),
-        '/local_gyms': (context) => const LocalGymsPage(),
-        '/notifications': (context) => const NotificationsPage(),
-        '/workout_plans': (context) => const WorkoutPlans(),
-        '/meal_plans': (context) => const MealPlansPage(),
-        '/local_gym': (context) => const LocalGymsPage(),
-        '/profile': (context) => ProfilePage(),
-        '/settings': (context) => const SettingsPage(),
-        '/subscription': (context) => const SubscriptionPage(),
-        '/challenges': (context) => const ChallengesPage(),
-      },
+      onGenerateRoute: generateRoutes,
     );
   }
 }
