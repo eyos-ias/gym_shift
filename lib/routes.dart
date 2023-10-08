@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/core/common/not_found_page.dart';
+import 'package:gym_shift/core/common/page_not_found.dart';
 import 'package:gym_shift/screens/ChallengesPage/challenges_page.dart';
 import 'package:gym_shift/screens/HomePage/home_page.dart';
 import 'package:gym_shift/screens/LocalGyms/local_gyms.dart';
