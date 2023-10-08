@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/RegistrationPage/forgot_password.dart';
-import 'package:gym_shift/Screens/common/components/button.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/screens/RegistrationPage/forgot_password.dart';
+import 'package:gym_shift/screens/common/components/button.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 
 import 'signup_page.dart';
 

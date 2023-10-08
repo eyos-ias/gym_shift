@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/ExercisePage/exercise_page.dart';
+import 'package:gym_shift/screens/ExercisePage/exercise_page.dart';
 
 class WorkoutCard extends StatelessWidget {
   final BoxConstraints constraints;

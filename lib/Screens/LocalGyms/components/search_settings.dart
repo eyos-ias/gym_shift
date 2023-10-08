@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/common/components/button.dart';
+import 'package:gym_shift/screens/common/components/button.dart';
 
-import '../../../core/constants/colors.dart';
+import '../../../Core/constants/colors.dart';
 
 Future<void> SearchSettings(BuildContext context, BoxConstraints constraints) {
   List<String> searchMethod = ["List", "Map"];

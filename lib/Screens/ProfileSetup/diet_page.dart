@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/ProfileSetup/components/chip_input_textfield.dart';
-import 'package:gym_shift/Screens/common/components/button.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/screens/ProfileSetup/components/chip_input_textfield.dart';
+import 'package:gym_shift/screens/common/components/button.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 
 class DietPage extends StatefulWidget {
   DietPage({super.key});

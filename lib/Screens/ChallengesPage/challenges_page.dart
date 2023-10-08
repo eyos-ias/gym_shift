@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:table_calendar/table_calendar.dart';
 

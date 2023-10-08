@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 
 class OtpField extends StatelessWidget {
   const OtpField({super.key});

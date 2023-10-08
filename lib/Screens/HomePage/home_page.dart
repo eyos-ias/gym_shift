@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 import '../Notifications/notifications_page.dart';
 import './components/heading_section.dart';
 import './components/main_section.dart';

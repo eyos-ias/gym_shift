@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/colors.dart';
+import '../../../Core/constants/colors.dart';
 
 class HeadingSection extends StatelessWidget {
   final BoxConstraints constraints;

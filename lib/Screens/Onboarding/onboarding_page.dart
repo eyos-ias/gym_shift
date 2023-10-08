@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../core/constants/colors.dart';
+import '../../Core/constants/colors.dart';
 
 class OnboardingPage extends StatelessWidget {
   final String imageUrl;

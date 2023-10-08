@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/colors.dart';
+import '../../../Core/constants/colors.dart';
 import './home_card.dart';
 
 class MainSection extends StatelessWidget {

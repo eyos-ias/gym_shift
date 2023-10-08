@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/common/components/button.dart';
-import 'package:gym_shift/Screens/common/components/text_field.dart';
+import 'package:gym_shift/screens/common/components/button.dart';
+import 'package:gym_shift/screens/common/components/text_field.dart';
 
 class BmiPage extends StatefulWidget {
   const BmiPage({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/LocalGyms/components/gym_card.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/screens/LocalGyms/components/gym_card.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'components/gym_details.dart';

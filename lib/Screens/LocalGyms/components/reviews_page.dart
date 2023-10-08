@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:gym_shift/Screens/LocalGyms/components/reviews_card.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/screens/LocalGyms/components/reviews_card.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 
 class ReviewsPage extends StatelessWidget {
   const ReviewsPage({super.key});

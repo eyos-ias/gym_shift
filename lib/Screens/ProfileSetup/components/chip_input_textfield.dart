@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/core/constants/colors.dart';
+import 'package:gym_shift/Core/constants/colors.dart';
 //import 'package:flutter_tags_x/flutter_tags_x.dart';
 
 class ChipInputTextField extends StatefulWidget {

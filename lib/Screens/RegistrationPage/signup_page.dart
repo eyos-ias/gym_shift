@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/ProfileSetup/bmi_page.dart';
-import 'package:gym_shift/Screens/RegistrationPage/components/drop_down_field.dart';
-import 'package:gym_shift/Screens/common/components/button.dart';
-import '../../core/constants/colors.dart';
+import 'package:gym_shift/screens/ProfileSetup/bmi_page.dart';
+import 'package:gym_shift/screens/RegistrationPage/components/drop_down_field.dart';
+import 'package:gym_shift/screens/common/components/button.dart';
+import '../../Core/constants/colors.dart';
 import '../common/components/text_field.dart';
 
 class SignUpPage extends StatefulWidget {

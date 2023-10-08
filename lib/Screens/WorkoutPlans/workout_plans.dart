@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/Screens/WorkoutPlans/components/workout_card.dart';
+import 'package:gym_shift/screens/WorkoutPlans/components/workout_card.dart';
 
-import '../../../core/constants/colors.dart';
+import '../../Core/constants/colors.dart';
 
 class WorkoutPlans extends StatelessWidget {
   //final BoxConstraints constraints;
