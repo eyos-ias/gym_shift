@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/screens/RegistrationPage/signup_page.dart';
+import 'package:gym_shift/screens/Auth/signup_page.dart';
 import 'package:gym_shift/Core/constants/colors.dart';
 import 'login_page.dart';
 

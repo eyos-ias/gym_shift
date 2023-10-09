@@ -8,7 +8,7 @@ import 'package:gym_shift/screens/Notifications/notifications_page.dart';
 import 'package:gym_shift/screens/Onboarding/onboarding_screen.dart';
 import 'package:gym_shift/screens/ProfilePage/profile_page.dart';
 import 'package:gym_shift/screens/ProfileSetup/profile_photo_page.dart';
-import 'package:gym_shift/screens/RegistrationPage/registration_screen.dart';
+import 'package:gym_shift/screens/Auth/registration_screen.dart';
 import 'package:gym_shift/screens/Settings/settings.dart';
 import 'package:gym_shift/screens/SubscriptionPage/subscription_page.dart';
 import 'package:gym_shift/screens/WorkoutPlans/workout_plans.dart';
