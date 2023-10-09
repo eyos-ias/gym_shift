@@ -3,7 +3,7 @@ import 'package:gym_shift/screens/Auth/forgot_password.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
 import 'package:gym_shift/Core/constants/colors.dart';
 
-import 'signup_page.dart';
+import '../sign_up/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

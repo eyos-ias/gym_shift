@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Core/constants/colors.dart';
 
-import 'signup_page.dart';
+import 'sign_up/signup_page.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);

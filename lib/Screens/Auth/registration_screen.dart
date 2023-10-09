@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/screens/Auth/signup_page.dart';
+import 'package:gym_shift/screens/Auth/sign_up/signup_page.dart';
 import 'package:gym_shift/Core/constants/colors.dart';
-import 'login_page.dart';
+import 'login/login_page.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({super.key});

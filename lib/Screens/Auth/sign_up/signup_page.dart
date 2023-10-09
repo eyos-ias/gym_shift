@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gym_shift/screens/ProfileSetup/bmi_page.dart';
 import 'package:gym_shift/screens/Auth/components/drop_down_field.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
-import '../../Core/constants/colors.dart';
-import '../common/components/text_field.dart';
+import '../../../Core/constants/colors.dart';
+import '../../common/components/text_field.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
