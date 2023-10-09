@@ -46,6 +46,8 @@ dependencies:
   formz: ^0.6.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  http: ^1.1.0
+  provider: ^6.0.5
   # flutter_tags_x: ^1.1.0
 
 dev_dependencies:
