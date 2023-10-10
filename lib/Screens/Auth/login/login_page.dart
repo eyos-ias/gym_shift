@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:gym_shift/screens/Auth/forgot_password.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
 import 'package:gym_shift/Core/constants/colors.dart';
-
+import 'package:http/http.dart' as http;
 import '../sign_up/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  // void signIn() async {
+  //   try {
+  //     http.post(Uri.parse('http://localhost:5000/user/signin'), body: {});
+  //   } catch (e) {}
+  // }
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -34,13 +40,6 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // const SizedBox(
-                //   height: 40,
-                // ),
-                // const Text(
-                //   'Login',
-                //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
-                // ),
                 Image.asset(
                   "assets/Logo.png",
                   width: 150,
