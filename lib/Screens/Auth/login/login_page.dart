@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/screens/Auth/forgot_password.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
-import 'package:gym_shift/Core/constants/colors.dart';
-import 'package:http/http.dart' as http;
+// import 'package:gym_shift/Core/constants/colors.dart';
+// import 'package:http/http.dart' as http;
 import '../sign_up/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,6 +19,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool signInError = true;
+  String errorMessage = "Wrong password";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +95,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+                signInError
+                    ? Text(
+                        errorMessage,
+                        style: const TextStyle(color: Colors.red),
+                      )
+                    : Container(),
                 TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -101,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                       );
                     },
                     child: const Text("Forgot Password?")),
-                SizedBox(height: 15.0),
+                const SizedBox(height: 15.0),
                 //sign in button
 
                 MyButton(
