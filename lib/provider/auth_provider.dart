@@ -51,8 +51,10 @@ class AuthProvider extends ChangeNotifier {
       } else {
         print('Request failed with status: ${response.statusCode}');
         print('Response: ${response.body}');
+        authenticated = false;
       }
     } catch (error) {
+      authenticated = false;
       print('Error occurred: $error');
     }
 
