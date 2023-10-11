@@ -1,5 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
-import 'package:gym_shift/models/auth.dart';
+import 'package:formz/formz.dart';
 import 'package:gym_shift/provider/auth_provider.dart';
 import 'package:gym_shift/screens/Auth/forgot_password.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
@@ -26,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   bool isSigningIn = false;
   bool signInError = true;
-  String errorMessage = "Something went wrong.";
+  String errorMessage = "";
 
   @override
   Widget build(BuildContext context) {
@@ -128,19 +130,28 @@ class _LoginPageState extends State<LoginPage> {
                         : () async {
                             setState(() {
                               isSigningIn = true;
+                              errorMessage = '';
                             });
 
                             print(
                                 "email: ${emailController.text}, password: ${passwordController.text}");
-                            Provider.of<AuthProvider>(context, listen: false)
+                            await Provider.of<AuthProvider>(context,
+                                    listen: false)
                                 .signInUser(emailController.text,
                                     passwordController.text);
-                            // await Future.delayed(const Duration(seconds: 3),
-                            //     () {
-                            //   setState(() {
-                            //     isSigningIn = false;
-                            //   });
-                            // });
+                            if (Provider.of<AuthProvider>(context,
+                                    listen: false)
+                                .authenticated) {
+                              Navigator.pushNamed(context, '/homepage');
+                            } else {
+                              setState(() {
+                                signInError = true;
+                                errorMessage = Provider.of<AuthProvider>(
+                                        context,
+                                        listen: false)
+                                    .errorMessage;
+                              });
+                            }
                             print("signing in");
                             setState(() {
                               isSigningIn = false;

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:gym_shift/Core/constants/colors.dart';
+import 'package:gym_shift/provider/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
   static String iconPath = "assets/images/sidebar_icons/";
   @override
   Widget build(BuildContext context) {
+    String profileUrl = Provider.of<AuthProvider>(context).user!.profileUrl;
+    String userName = Provider.of<AuthProvider>(context).user!.fullName;
     return Drawer(
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -23,9 +26,9 @@ class SideBar extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const CircleAvatar(
-                          backgroundImage:
-                              AssetImage("assets/images/sidebar_image.png"),
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(profileUrl),
+                          //AssetImage("assets/images/sidebar_image.png"),
                           radius: 40,
                         ),
                         SizedBox(
@@ -35,20 +38,20 @@ class SideBar extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "User Name",
+                              "$userName",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize:
                                     22 * MediaQuery.of(context).textScaleFactor,
                               ),
                             ),
-                            const Text(
-                              "abc**@gmail.com",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                              ),
-                            ),
+                            // const Text(
+                            //   "abc**@gmail.com",
+                            //   style: TextStyle(
+                            //     color: Colors.white,
+                            //     fontSize: 13,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ],

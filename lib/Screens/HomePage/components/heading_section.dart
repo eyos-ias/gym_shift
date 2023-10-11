@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/provider/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Core/constants/colors.dart';
 
@@ -8,7 +10,6 @@ class HeadingSection extends StatelessWidget {
     required this.constraints,
     super.key,
   });
-
   String _getGreeting() {
     final hour = DateTime.now().hour;
 
@@ -23,6 +24,8 @@ class HeadingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userName = Provider.of<AuthProvider>(context).user!.fullName;
+
     return Container(
       height: constraints.maxHeight * 0.11,
       color: kPrimaryColor,
@@ -47,7 +50,7 @@ class HeadingSection extends StatelessWidget {
                               18 * MediaQuery.of(context).textScaleFactor),
                     ),
                     Text(
-                      "Bob Richmond",
+                      "$userName",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -58,12 +61,14 @@ class HeadingSection extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: double.infinity,
               child: Center(
                 child: CircleAvatar(
-                  backgroundImage:
-                      AssetImage("assets/images/sidebar_image.png"),
+                  backgroundImage: NetworkImage(
+                      Provider.of<AuthProvider>(context).user!.profileUrl),
+
+                  // AssetImage("assets/images/sidebar_image.png"),
                   radius: 30,
                 ),
               ),

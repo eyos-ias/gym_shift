@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      drawer: const SideBar(),
+      drawer: SideBar(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return Column(

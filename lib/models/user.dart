@@ -29,4 +29,20 @@ class User {
     this.workoutGoal = "",
     this.allergies = const [],
   });
+
+  String toString() {
+    return 'User \n'
+        'ID: $id\n'
+        'Username: $fullName\n'
+        'Password: $password\n'
+        'Email: $email\n'
+        'Gender: $gender\n'
+        'Profile Pic: $profileUrl\n'
+        'BMI: $bmi\n'
+        'Height: $height\n'
+        'Weight: $weight\n'
+        'Age: $age\n'
+        'Workout Goal: $workoutGoal\n'
+        'Allergies: $allergies';
+  }
 }

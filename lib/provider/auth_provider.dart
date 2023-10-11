@@ -8,7 +8,7 @@ class AuthProvider extends ChangeNotifier {
   bool authenticated = false;
   User? user;
   AuthModel _authModel = AuthModel(isLoggedIn: false, token: '');
-
+  String errorMessage = '';
   AuthModel get authModel => _authModel;
 
   Future<void> signInUser(String email, String password) async {
@@ -46,9 +46,13 @@ class AuthProvider extends ChangeNotifier {
             workoutGoal: responseData['result']['workoutGoal']);
 
         authenticated = true;
-        print("${user!.fullName} sign in successfuly");
+        print("${user.toString()}");
         print(responseData);
       } else {
+        //print(response.body.runtimeType);
+        final Map<String, dynamic> responseBody = json.decode(response.body);
+
+        errorMessage = responseBody['message'];
         print('Request failed with status: ${response.statusCode}');
         print('Response: ${response.body}');
         authenticated = false;
@@ -62,6 +66,7 @@ class AuthProvider extends ChangeNotifier {
   }
 
   void logout() {
+    user = null;
     _authModel = AuthModel(isLoggedIn: false, token: '');
     notifyListeners();
   }
