@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/models/auth.dart';
+import 'package:gym_shift/models/user.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AuthProvider extends ChangeNotifier {
+  bool authenticated = false;
+  User? user;
   AuthModel _authModel = AuthModel(isLoggedIn: false, token: '');
 
   AuthModel get authModel => _authModel;
@@ -30,6 +33,19 @@ class AuthProvider extends ChangeNotifier {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         // Process the response data as needed
+        print('FullName: ${responseData['result']['fullName'].toString()}');
+        user = User(
+            id: responseData['result']['_id'],
+            fullName: responseData['result']['fullName'],
+            password: responseData['result']['confirmPassword'],
+            email: responseData['result']['email'],
+            //profileUrl: responseData['result']['profilUrl'],
+            bmi: responseData['result']['bmi'],
+            allergies: List<String>.from(responseData['result']['allergies']),
+            workoutGoal: responseData['result']['workoutGoal']);
+
+        authenticated = true;
+        print("${user!.fullName} sign in successfuly");
         print(responseData);
       } else {
         print('Request failed with status: ${response.statusCode}');
@@ -38,6 +54,8 @@ class AuthProvider extends ChangeNotifier {
     } catch (error) {
       print('Error occurred: $error');
     }
+
+    notifyListeners();
   }
 
   void logout() {

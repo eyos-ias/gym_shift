@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/models/auth.dart';
+import 'package:gym_shift/provider/auth_provider.dart';
 import 'package:gym_shift/screens/Auth/forgot_password.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
+import 'package:provider/provider.dart';
 // import 'package:gym_shift/Core/constants/colors.dart';
 // import 'package:http/http.dart' as http;
 import '../sign_up/signup_page.dart';
@@ -21,8 +24,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isSigningIn = false;
   bool signInError = true;
-  String errorMessage = "Wrong password";
+  String errorMessage = "Something went wrong.";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,10 +71,11 @@ class _LoginPageState extends State<LoginPage> {
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 20.0),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
                       child: TextField(
-                        decoration: InputDecoration(
+                        controller: emailController,
+                        decoration: const InputDecoration(
                             border: InputBorder.none, hintText: 'Email'),
                       ),
                     ),
@@ -85,11 +91,12 @@ class _LoginPageState extends State<LoginPage> {
                       border: Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 20.0),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
                       child: TextField(
+                        controller: passwordController,
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             border: InputBorder.none, hintText: 'Password'),
                       ),
                     ),
@@ -102,23 +109,47 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     : Container(),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ForgotPasswordPage(),
-                        ),
-                      );
-                    },
-                    child: const Text("Forgot Password?")),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ForgotPasswordPage(),
+                      ),
+                    );
+                  },
+                  child: const Text("Forgot Password?"),
+                ),
                 const SizedBox(height: 15.0),
                 //sign in button
 
                 MyButton(
-                    onPressed: () {
-                      Navigator.popAndPushNamed(context, '/homepage');
-                    },
-                    text: "SignIn"),
+                    onPressed: isSigningIn
+                        ? () {}
+                        : () async {
+                            setState(() {
+                              isSigningIn = true;
+                            });
+
+                            print(
+                                "email: ${emailController.text}, password: ${passwordController.text}");
+                            Provider.of<AuthProvider>(context, listen: false)
+                                .signInUser(emailController.text,
+                                    passwordController.text);
+                            // await Future.delayed(const Duration(seconds: 3),
+                            //     () {
+                            //   setState(() {
+                            //     isSigningIn = false;
+                            //   });
+                            // });
+                            print("signing in");
+                            setState(() {
+                              isSigningIn = false;
+                            });
+                            //Navigator.popAndPushNamed(context, '/homepage');
+                            // Provider.of<AuthProvider>(context, listen: false)
+                            //     .signInUser('akintanseyi5@gmail.com', '12345');
+                          },
+                    text: isSigningIn ? ". . ." : "SignIn"),
                 const SizedBox(height: 30),
                 //not a member?
                 Row(
