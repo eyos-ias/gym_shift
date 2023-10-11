@@ -39,7 +39,8 @@ class AuthProvider extends ChangeNotifier {
             fullName: responseData['result']['fullName'],
             password: responseData['result']['confirmPassword'],
             email: responseData['result']['email'],
-            //profileUrl: responseData['result']['profilUrl'],
+            profileUrl: responseData['result']['profilUrl'] ??
+                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
             bmi: responseData['result']['bmi'],
             allergies: List<String>.from(responseData['result']['allergies']),
             workoutGoal: responseData['result']['workoutGoal']);
