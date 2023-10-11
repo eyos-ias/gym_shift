@@ -168,7 +168,10 @@ class SideBar extends StatelessWidget {
                 ),
                 title: const Text("Logout"),
                 onTap: () {
-                  Navigator.pushNamed(context, '/logout');
+                  // Navigator.pushNamed(context, '/logout');
+                  Navigator.popAndPushNamed(context, '/registration');
+
+                  Provider.of<AuthProvider>(context, listen: false).logout();
                 },
               ),
             ],

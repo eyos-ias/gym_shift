@@ -66,7 +66,8 @@ class AuthProvider extends ChangeNotifier {
   }
 
   void logout() {
-    user = null;
+    authenticated = false;
+
     _authModel = AuthModel(isLoggedIn: false, token: '');
     notifyListeners();
   }
