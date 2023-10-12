@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../Core/constants/colors.dart';
 
 class MyButton extends StatelessWidget {
+  bool? disabled;
   final String text;
   final void Function() onPressed;
   Color? color = kPrimaryColor;
@@ -10,6 +11,7 @@ class MyButton extends StatelessWidget {
     this.color,
     required this.onPressed,
     required this.text,
+    this.disabled = false,
     super.key,
   });
 
@@ -23,7 +25,7 @@ class MyButton extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(color),
           ),
-          onPressed: onPressed,
+          onPressed: disabled! ? () {} : onPressed,
           child: Container(
             padding: const EdgeInsets.all(20.0),
             child: Center(

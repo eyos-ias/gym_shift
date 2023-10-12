@@ -14,6 +14,12 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool agreeToTerms = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController fullNameController = TextEditingController();
+  String gender = "";
+  TextEditingController confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,15 +58,19 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(
                   height: 50,
                 ),
+
                 // Email input field
                 MyTextField(
                   hintText: "Full Name",
                 ),
                 const SizedBox(height: 15.0),
+
                 //password input field
                 MyTextField(
+                  controller: emailController,
                   hintText: "Email",
                 ),
+
                 const SizedBox(height: 15.0),
                 // MyTextField(
                 //   hintText: "Gender",
@@ -68,10 +78,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 MyGenderDropdown(),
                 const SizedBox(height: 15.0),
                 MyTextField(
+                  controller: passwordController,
                   hintText: "Password",
                 ),
                 const SizedBox(height: 15.0),
                 MyTextField(
+                  controller: confirmPasswordController,
                   hintText: "Confirm password",
                 ),
                 const SizedBox(height: 15.0),
@@ -79,15 +91,14 @@ class _SignUpPageState extends State<SignUpPage> {
 
                 MyButton(
                     onPressed: () {
-                      // Navigator.pushNamed(context, '/homepage');
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return BmiPage();
-                      }));
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (context) {
+                      //   return BmiPage();
+                      // }));
                     },
                     text: "Sign Up"),
                 const SizedBox(height: 30),
-                //not a member?
+                // Agree to terms
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
