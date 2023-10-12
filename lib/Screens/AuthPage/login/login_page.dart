@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gym_shift/providers/auth_provider.dart';
-import 'package:gym_shift/screens/Auth/forgot_password.dart';
+import 'package:gym_shift/screens/AuthPage/forgot_password.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
 import 'package:provider/provider.dart';
 // import 'package:gym_shift/Core/constants/colors.dart';
