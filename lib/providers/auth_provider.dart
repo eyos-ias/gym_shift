@@ -58,6 +58,7 @@ class AuthProvider extends ChangeNotifier {
         authenticated = false;
       }
     } catch (error) {
+      errorMessage = 'Something went wrong on our side.';
       authenticated = false;
       print('Error occurred: $error');
     }

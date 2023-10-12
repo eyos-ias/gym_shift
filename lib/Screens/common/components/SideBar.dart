@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gym_shift/Core/constants/colors.dart';
-import 'package:gym_shift/provider/auth_provider.dart';
+import 'package:gym_shift/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class SideBar extends StatelessWidget {

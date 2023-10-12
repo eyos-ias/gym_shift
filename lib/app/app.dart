@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/app/routes.dart';
-import 'package:gym_shift/provider/auth_provider.dart';
+import 'package:gym_shift/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 // import 'package:gym_shift/screens/ChallengesPage/challenges_page.dart';
 // import 'package:gym_shift/screens/ExercisePage/components/exercise_demo.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/Core/constants/colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../common/components/button.dart';
 
 class ProfilePicturePage extends StatelessWidget {
@@ -44,19 +43,19 @@ class ProfilePicturePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             MyButton(
               text: "Next",
               onPressed: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             TextButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Skip",
                 style: TextStyle(color: kTextColor, fontSize: 15),
               ),

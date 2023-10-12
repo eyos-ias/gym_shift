@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_shift/provider/auth_provider.dart';
+import 'package:gym_shift/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Core/constants/colors.dart';
