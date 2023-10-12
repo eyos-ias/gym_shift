@@ -23,9 +23,10 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(color),
+            backgroundColor:
+                MaterialStateProperty.all(disabled! ? kTextColor : color),
           ),
-          onPressed: disabled! ? () {} : onPressed,
+          onPressed: disabled! ? null : onPressed,
           child: Container(
             padding: const EdgeInsets.all(20.0),
             child: Center(

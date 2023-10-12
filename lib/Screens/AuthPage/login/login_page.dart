@@ -155,9 +155,6 @@ class _LoginPageState extends State<LoginPage> {
                             setState(() {
                               isSigningIn = false;
                             });
-                            //Navigator.popAndPushNamed(context, '/homepage');
-                            // Provider.of<AuthProvider>(context, listen: false)
-                            //     .signInUser('akintanseyi5@gmail.com', '12345');
                           },
                     text: isSigningIn ? ". . ." : "SignIn"),
                 const SizedBox(height: 30),
