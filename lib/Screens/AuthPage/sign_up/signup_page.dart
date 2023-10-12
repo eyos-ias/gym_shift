@@ -16,9 +16,16 @@ class _SignUpPageState extends State<SignUpPage> {
   bool agreeToTerms = false;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
   TextEditingController fullNameController = TextEditingController();
   String gender = "";
-  TextEditingController confirmPasswordController = TextEditingController();
+  bool passwordConfirmed(password, confirmPassword) {
+    if (password == confirmPassword) {
+      return true;
+    }
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {

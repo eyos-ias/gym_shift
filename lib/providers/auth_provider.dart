@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 class AuthProvider extends ChangeNotifier {
   bool authenticated = false;
+  bool pending = false;
   User? user;
   AuthModel _authModel = AuthModel(isLoggedIn: false, token: '');
   String errorMessage = '';
@@ -66,7 +67,72 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signUpUser() async {}
+  Future<void> signUpUser(
+      {required String email,
+      required String password,
+      required String fullName,
+      required String gender,
+      required String confirmPassword}) async {
+    //email, passsword, fullName, gender, confirmPassword
+
+    const String apiUrl = 'http://localhost:5000/user/signin';
+
+    try {
+      final Map<String, String> headers = {
+        'Content-Type': 'application/json',
+      };
+
+      final Map<String, String> body = {
+        'email': email,
+        'password': password,
+        'fullName': fullName,
+        'gender': gender,
+        'confirmPassword': confirmPassword
+      };
+
+      final http.Response response = await http.post(
+        Uri.parse(apiUrl),
+        headers: headers,
+        body: jsonEncode(body),
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        // Process the response data as needed
+        print('FullName: ${responseData['result']['fullName'].toString()}');
+        user = User(
+          id: responseData['result']['_id'],
+          fullName: responseData['result']['fullName'],
+          password: responseData['result']['confirmPassword'],
+          email: responseData['result']['email'],
+          profileUrl: responseData['result']['profilUrl'] ??
+              "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        );
+
+        authenticated = true;
+        print("${user.toString()}");
+        print(responseData);
+      } else {
+        //print(response.body.runtimeType);
+        final Map<String, dynamic> responseBody = json.decode(response.body);
+
+        errorMessage = responseBody['message'];
+        print('Request failed with status: ${response.statusCode}');
+        print('Response: ${response.body}');
+        pending = true;
+      }
+    } catch (error) {
+      errorMessage = 'Something went wrong on our side.';
+      authenticated = false;
+      print('Error occurred: $error');
+    }
+
+    notifyListeners();
+  }
+
+  void confirmOtp(String id) {
+    notifyListeners();
+  }
 
   void logout() {
     authenticated = false;

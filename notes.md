@@ -414,6 +414,7 @@ class ConfirmedPassword
 
 
 ## example response
+### Sign in
 ```javascript
 {
   _id: new ObjectId("6507edb20712a369d9216277"),
@@ -433,4 +434,29 @@ class ConfirmedPassword
   __v: 0
 }
 
+```
+
+### sign up
+```json
+{
+    "status": "Pending",
+    "message": "Verification Code Sent to Email",
+    "result": {
+        "fullName": "Eyosias T.",
+        "email": "eyosiastamirat30@gmail.com",
+        "verified": false,
+        "password": "$2a$10$jjkXFzHwzqC1Cvrnf8xu3ucHQmCmONuRgVFa4mSLo9SoQDQ7rp.gC",
+        "gender": "male",
+        "confirmPassword": "$2a$10$jjkXFzHwzqC1Cvrnf8xu3ucHQmCmONuRgVFa4mSLo9SoQDQ7rp.gC",
+        "bmi": "",
+        "height": "",
+        "weight": "",
+        "age": null,
+        "workoutGoal": "",
+        "profilePic": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        "allergies": [],
+        "_id": "6527c0141412f4126c3e7c1c",
+        "__v": 0
+    }
+}
 ```
