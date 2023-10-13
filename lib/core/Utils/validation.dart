@@ -16,3 +16,12 @@ class PasswordValidator {
     return regex.hasMatch(password);
   }
 }
+
+class FullNameValidator {
+  static const String _fullNamePattern = r'^[a-zA-Z ]+$';
+
+  static bool isValid(String fullName) {
+    RegExp regex = RegExp(_fullNamePattern);
+    return regex.hasMatch(fullName);
+  }
+}

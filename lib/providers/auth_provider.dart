@@ -75,7 +75,7 @@ class AuthProvider extends ChangeNotifier {
       required String confirmPassword}) async {
     //email, passsword, fullName, gender, confirmPassword
 
-    const String apiUrl = 'http://localhost:5000/user/signin';
+    const String apiUrl = 'http://localhost:5000/user/signup';
 
     try {
       final Map<String, String> headers = {
@@ -99,7 +99,8 @@ class AuthProvider extends ChangeNotifier {
       if (response.statusCode == 200) {
         final Map<String, dynamic> responseData = jsonDecode(response.body);
         // Process the response data as needed
-        print('FullName: ${responseData['result']['fullName'].toString()}');
+        print("pending");
+        //print('FullName: ${responseData['result']['fullName'].toString()}');
         user = User(
           id: responseData['result']['_id'],
           fullName: responseData['result']['fullName'],
@@ -108,8 +109,8 @@ class AuthProvider extends ChangeNotifier {
           profileUrl: responseData['result']['profilUrl'] ??
               "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
         );
-
-        authenticated = true;
+        pending = true;
+        // authenticated = true;
         print("${user.toString()}");
         print(responseData);
       } else {
@@ -119,7 +120,6 @@ class AuthProvider extends ChangeNotifier {
         errorMessage = responseBody['message'];
         print('Request failed with status: ${response.statusCode}');
         print('Response: ${response.body}');
-        pending = true;
       }
     } catch (error) {
       errorMessage = 'Something went wrong on our side.';

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gym_shift/core/Utils/validation.dart';
+import 'package:gym_shift/providers/auth_provider.dart';
+import 'package:gym_shift/screens/AuthPage/otp_screen.dart';
 import 'package:gym_shift/screens/ProfileSetup/bmi_page.dart';
 import 'package:gym_shift/screens/AuthPage/components/drop_down_field.dart';
 import 'package:gym_shift/screens/common/components/button.dart';
+import 'package:provider/provider.dart';
 import '../../../Core/constants/colors.dart';
 import '../../common/components/text_field.dart';
 
@@ -17,16 +21,15 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
-
   TextEditingController fullNameController = TextEditingController();
-  String gender = "";
-  bool passwordConfirmed(password, confirmPassword) {
-    if (password == confirmPassword) {
-      return true;
-    }
-    return false;
-  }
-
+  String gender = "male";
+  bool validEmail = false;
+  bool validPassword = false;
+  bool validFullName = false;
+  bool passwordConfirmed = false;
+  bool signingUp = false;
+  bool signUpError = false;
+  String errorMessage = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,14 +69,38 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: 50,
                 ),
 
-                // Email input field
+                //Full Name text field
                 MyTextField(
+                  controller: fullNameController,
+                  onChanged: (value) {
+                    if (FullNameValidator.isValid(value)) {
+                      setState(() {
+                        validFullName = true;
+                      });
+                    } else {
+                      setState(() {
+                        validFullName = false;
+                      });
+                    }
+                  },
+                  maxLength: 20,
                   hintText: "Full Name",
                 ),
                 const SizedBox(height: 15.0),
 
-                //password input field
+                //Email input field
                 MyTextField(
+                  onChanged: (value) {
+                    if (EmailValidator.isValid(value)) {
+                      setState(() {
+                        validEmail = true;
+                      });
+                    } else {
+                      setState(() {
+                        validEmail = false;
+                      });
+                    }
+                  },
                   controller: emailController,
                   hintText: "Email",
                 ),
@@ -82,28 +109,100 @@ class _SignUpPageState extends State<SignUpPage> {
                 // MyTextField(
                 //   hintText: "Gender",
                 // ),
+
+                //Gender Input Field
                 MyGenderDropdown(),
                 const SizedBox(height: 15.0),
+
+                //Password Input Field
                 MyTextField(
+                  obscureText: true,
+                  onChanged: (value) {
+                    if (PasswordValidator.isValid(value)) {
+                      setState(() {
+                        validPassword = true;
+                      });
+                    } else {
+                      setState(() {
+                        validPassword = false;
+                      });
+                    }
+                  },
                   controller: passwordController,
                   hintText: "Password",
                 ),
                 const SizedBox(height: 15.0),
+
+                //Confirm Password Input Field
                 MyTextField(
+                  obscureText: true,
+                  onChanged: (value) {
+                    if (value == passwordController.text) {
+                      setState(() {
+                        passwordConfirmed = true;
+                      });
+                    } else {
+                      setState(() {
+                        passwordConfirmed = false;
+                      });
+                    }
+                  },
                   controller: confirmPasswordController,
                   hintText: "Confirm password",
                 ),
+
+                signUpError
+                    ? Text(
+                        errorMessage,
+                        style: const TextStyle(color: Colors.red),
+                      )
+                    : Container(),
+
                 const SizedBox(height: 15.0),
                 //sign in button
 
                 MyButton(
-                    onPressed: () {
-                      // Navigator.push(context,
-                      //     MaterialPageRoute(builder: (context) {
-                      //   return BmiPage();
-                      // }));
+                    enabled: validEmail &&
+                        validFullName &&
+                        validPassword &&
+                        passwordConfirmed &&
+                        agreeToTerms &&
+                        !signingUp,
+                    onPressed: () async {
+                      setState(() {
+                        signingUp = true;
+                      });
+                      // await Future.delayed(Duration(seconds: 2), () {
+                      //   print(
+                      //       "${emailController.text}, ${passwordController.text}, ${fullNameController.text}, $gender, ${confirmPasswordController.text}");
+                      // });
+                      await Provider.of<AuthProvider>(context, listen: false)
+                          .signUpUser(
+                              email: emailController.text,
+                              password: passwordController.text,
+                              fullName: fullNameController.text,
+                              gender: "male",
+                              confirmPassword: confirmPasswordController.text);
+                      if (Provider.of<AuthProvider>(context, listen: false)
+                          .pending) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const OtpScreen()));
+                      } else {
+                        setState(() {
+                          signUpError = true;
+                          errorMessage =
+                              Provider.of<AuthProvider>(context, listen: false)
+                                  .errorMessage;
+                        });
+                      }
+
+                      setState(() {
+                        signingUp = false;
+                      });
                     },
-                    text: "Sign Up"),
+                    text: signingUp ? ". . ." : "Sign Up"),
                 const SizedBox(height: 30),
                 // Agree to terms
                 Row(

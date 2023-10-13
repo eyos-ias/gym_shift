@@ -8,6 +8,7 @@ class MyTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final bool? obscureText;
 
   MyTextField({
     Key? key,
@@ -17,6 +18,7 @@ class MyTextField extends StatelessWidget {
     this.maxLength,
     this.onChanged,
     this.controller,
+    this.obscureText = false,
   }) : super(key: key);
 
   @override
@@ -61,6 +63,7 @@ class MyTextField extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 20.0),
             child: TextField(
+              obscureText: obscureText!,
               controller: controller,
               maxLength: maxLength,
               keyboardType: keyboardType,
