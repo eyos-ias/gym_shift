@@ -97,7 +97,8 @@ class AuthProvider extends ChangeNotifier {
       );
 
       if (response.statusCode == 200) {
-        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        final Map<String, dynamic> responseData =
+            await jsonDecode(response.body);
         // Process the response data as needed
         print("pending");
         //print('FullName: ${responseData['result']['fullName'].toString()}');
@@ -115,8 +116,9 @@ class AuthProvider extends ChangeNotifier {
         print(responseData);
       } else {
         //print(response.body.runtimeType);
-        final Map<String, dynamic> responseBody = json.decode(response.body);
-
+        final Map<String, dynamic> responseBody =
+            await json.decode(response.body);
+        pending = false;
         errorMessage = responseBody['message'];
         print('Request failed with status: ${response.statusCode}');
         print('Response: ${response.body}');
@@ -124,13 +126,14 @@ class AuthProvider extends ChangeNotifier {
     } catch (error) {
       errorMessage = 'Something went wrong on our side.';
       authenticated = false;
+      pending = false;
       print('Error occurred: $error');
     }
 
     notifyListeners();
   }
 
-  void confirmOtp(String id) {
+  void confirmOtp(String id, String otp) {
     notifyListeners();
   }
 
