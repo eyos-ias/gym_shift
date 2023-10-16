@@ -6,12 +6,12 @@ class User {
   final String gender;
   final String email;
   final String profileUrl;
-  final String bmi;
-  final String height;
-  final String weight;
-  final int age;
-  final String workoutGoal;
-  final List<String> allergies;
+  final String? bmi;
+  final String? height;
+  final String? weight;
+  final int? age;
+  final String? workoutGoal;
+  final List<String>? allergies;
 
   User({
     required this.id,

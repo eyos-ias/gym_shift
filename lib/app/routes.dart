@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gym_shift/core/common/page_not_found.dart';
 import 'package:gym_shift/providers/auth_provider.dart';
+import 'package:gym_shift/screens/AuthPage/login/login_page.dart';
+import 'package:gym_shift/screens/AuthPage/otp_screen.dart';
 import 'package:gym_shift/screens/ChallengesPage/challenges_page.dart';
 import 'package:gym_shift/screens/HomePage/home_page.dart';
 import 'package:gym_shift/screens/LocalGyms/local_gyms.dart';
@@ -19,6 +21,8 @@ Map<String, Widget Function(BuildContext)> appRoutes = {
   '/': (context) => const OnboardingScreen(),
   '/onboarding': (context) => const OnboardingScreen(),
   '/registration': (context) => const RegistrationPage(),
+  '/login': (context) => LoginPage(),
+  '/otp_screen': (context) => OtpScreen(),
   '/profile_setup': (context) => const ProfilePicturePage(),
   '/homepage': (context) => const HomePage(),
   '/local_gyms': (context) => const LocalGymsPage(),

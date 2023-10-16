@@ -185,10 +185,11 @@ class _SignUpPageState extends State<SignUpPage> {
                               confirmPassword: confirmPasswordController.text);
                       if (Provider.of<AuthProvider>(context, listen: false)
                           .pending) {
+                        //await Navigator.pushNamed(context, '/otp_screen');
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const OtpScreen()));
+                                builder: (context) => OtpScreen()));
                       } else {
                         setState(() {
                           signUpError = true;
